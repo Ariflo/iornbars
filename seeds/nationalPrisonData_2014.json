@@ -1,0 +1,140 @@
+//Estimated percent of sentenced prisoners under federal correctional authority, 
+//by most serious offense, sex, race, and Hispanic origin, September 30, 2014
+//http://www.bjs.gov/index.cfm?ty=pbdetail&iid=5387
+[
+  {
+    "Most serious offense": "Violent",
+    "All inmates": "7.3%",
+    "Male": "8%",
+    "Female": "4%",
+    "White": "7.1%",
+    "Black": "9.9%",
+    "Hispanic": "2%"
+  },
+  {
+    "Most serious offense": "Homicide",
+    "All inmates": "1.5%",
+    "Male": "2%",
+    "Female": "1%",
+    "White": "0.7%",
+    "Black": "2.4%",
+    "Hispanic": "0%"
+  },
+  {
+    "Most serious offense": "Robbery",
+    "All inmates": "3.8%",
+    "Male": "3.9%",
+    "Female": "2%",
+    "White": "5%",
+    "Black": "6%",
+    "Hispanic": "0.9%"
+  },
+  {
+    "Most serious offense": "Other violent",
+    "All inmates": "2%",
+    "Male": "2.2%",
+    "Female": "1%",
+    "White": "1.5%",
+    "Black": "2%",
+    "Hispanic": "0.8%"
+  },
+  {
+    "Most serious offense": "Property",
+    "All inmates": "6%",
+    "Male": "5%",
+    "Female": "18%",
+    "White": "10%",
+    "Black": "5.9%",
+    "Hispanic": "2.7%"
+  },
+  {
+    "Most serious offense": "Burglary",
+    "All inmates": "0",
+    "Male": "0",
+    "Female": "0",
+    "White": "0.2",
+    "Black": "0",
+    "Hispanic": "0"
+  },
+  {
+    "Most serious offense": "Fraud",
+    "All inmates": "4.7%",
+    "Male": "4%",
+    "Female": "16%",
+    "White": "7.8%",
+    "Black": "4.4%",
+    "Hispanic": "2.3%"
+  },
+  {
+    "Most serious offense": "Other property",
+    "All inmates": "1.1%",
+    "Male": "1%",
+    "Female": "3%",
+    "White": "2%",
+    "Black": "1.1%",
+    "Hispanic": "0.4%"
+  },
+  {
+    "Most serious offense": "Drug",
+    "All inmates": "50.1%",
+    "Male": "49.5%",
+    "Female": "58.8%",
+    "White": "40%",
+    "Black": "52.5%",
+    "Hispanic": "56.9%"
+  },
+  {
+    "Most serious offense": "Public order",
+    "All inmates": "35.9%",
+    "Male": "37.1%",
+    "Female": "18%",
+    "White": "41.2%",
+    "Black": "31.2%",
+    "Hispanic": "38%"
+  },
+  {
+    "Most serious offense": "Immigration",
+    "All inmates": "8.9%",
+    "Male": "9%",
+    "Female": "3.7%",
+    "White": "1.2%",
+    "Black": "0%",
+    "Hispanic": "25.5%"
+  },
+  {
+    "Most serious offense": "Weapons",
+    "All inmates": "15.8%",
+    "Male": "17%",
+    "Female": "4.3%",
+    "White": "14.8%",
+    "Black": "25%",
+    "Hispanic": "7.1%"
+  },
+  {
+    "Most serious offense": "Other",
+    "All inmates": "11%",
+    "Male": "11%",
+    "Female": "10%",
+    "White": "25.3%",
+    "Black": "6%",
+    "Hispanic": "5%"
+  },
+  {
+    "Most serious offense": "Other/unspecified",
+    "All inmates": "0.7%",
+    "Male": "0.7%",
+    "Female": "0.6%",
+    "White": "1.4%",
+    "Black": "0.5%",
+    "Hispanic": "0.4%"
+  },
+  {
+    "Most serious offense": "Total number of sentenced inmates",
+    "All inmates": "192,663",
+    "Male": "180,140",
+    "Female": "12,523",
+    "White": "51,600",
+    "Black": "71,300",
+    "Hispanic": "63,700"
+  }
+]
