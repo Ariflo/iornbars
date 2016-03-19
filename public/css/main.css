@@ -12,36 +12,14 @@ a {
     background: center url("/images/iornbars.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 40em;
+    height: 35em;
     color: white;
     font-size: 14px;
-}
-
-.backgroundChange{
-    background: center url("/images/iornbars2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-transition: all linear 1s;
-    -moz-transition: all linear 1s;
-    -o-transition: all linear 1s;
-    transition: all linear 1s;
-}
-
-.backgroundChange2{
-    background: center url("/images/iornbars3.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 1;
-    -webkit-transition: all linear 2s;
-    -moz-transition: all linear 2s;
-    -o-transition: all linear 2s;
-    transition: all linear 2s;
 }
 
 #chancesButton {
   transition: 5s linear all;  
   opacity: 1;
-
   font-size: 1.5em;
   font-weight: 400;
   text-align: center;
@@ -50,8 +28,7 @@ a {
   border-radius: 5px;
   margin-left: 43%;
   margin-right: 50%;
-  margin-top: 5%;
-  
+  margin-top: 5%; 
 }
 
 #chancesButton.ng-hide {
