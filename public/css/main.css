@@ -1,8 +1,69 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body, html {
+  width: 100%;
+  height: 100%;
+  background: #b3b3cc;
 }
 
 a {
   color: #00B7FF;
+}
+
+.jumbotron{
+    background: center url("/images/iornbars.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40em;
+    color: white;
+    font-size: 14px;
+}
+
+.backgroundChange{
+    background: center url("/images/iornbars2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: all linear 1s;
+    -moz-transition: all linear 1s;
+    -o-transition: all linear 1s;
+    transition: all linear 1s;
+}
+
+.backgroundChange2{
+    background: center url("/images/iornbars3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1;
+    -webkit-transition: all linear 2s;
+    -moz-transition: all linear 2s;
+    -o-transition: all linear 2s;
+    transition: all linear 2s;
+}
+
+#chancesButton {
+  transition: 5s linear all;  
+  opacity: 1;
+
+  font-size: 1.5em;
+  font-weight: 400;
+  text-align: center;
+  border: solid white;
+  background: transparent;
+  border-radius: 5px;
+  margin-left: 43%;
+  margin-right: 50%;
+  margin-top: 5%;
+  
+}
+
+#chancesButton.ng-hide {
+  opacity: 0;
+}
+
+#chancesButton:hover, #chancesButton:focus, #chancesButton:active, #chancesButton.active {
+    background: -moz-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, bottom right, color-stop(rgba(224, 224, 209, .2)), color-stop(rgba(235, 235, 224, .8))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left top, rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* IE10+ */
+    background: linear-gradient(to bottom right,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(224, 224, 209, .2)', endColorstr='rgba(235, 235, 224, .8)',GradientType=0 ); /* IE6-9 */
 }
