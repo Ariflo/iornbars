@@ -8,6 +8,18 @@ a {
   color: #00B7FF;
 }
 
+.col-xs-6{ 
+	margin-left:25%;
+	margin-top: 10%;
+}
+
+.form-control{
+	transition: 5s linear all;  
+	border: solid white  !important;
+	background-color: rgba(0,0,0,0)  !important;
+	border-radius: 5px;
+}
+
 .jumbotron{
     background: center url("/images/iornbars.jpg");
     background-size: cover;
@@ -31,9 +43,10 @@ a {
   margin-top: 5%; 
 }
 
-#chancesButton.ng-hide {
+#chancesButton.ng-hide, input.ng-hide {
   opacity: 0;
 }
+
 
 #chancesButton:hover, #chancesButton:focus, #chancesButton:active, #chancesButton.active {
     background: -moz-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* FF3.6+ */
