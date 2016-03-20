@@ -84,5 +84,19 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 				 backSpeed: 0,
 			});
 		}, 3000);
+
+		$(window).scroll(
+		    {
+		        previousTop: 0
+		    }, 
+		    function () {
+			    var currentTop = $(window).scrollTop();
+				    if (currentTop < this.previousTop) {
+				        $(".nav-bar").show();
+				    } else {
+				        $(".nav-bar").hide();
+				    }
+		    this.previousTop = currentTop;
+		});
 	});
 }]);

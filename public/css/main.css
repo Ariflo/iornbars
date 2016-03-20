@@ -119,3 +119,10 @@ h2{
   padding-left: 1em;
   color: #B0C4DE;
 }
+
+.aboutLink{
+  font-family: "Book Antiqua";
+  font-size: 18px;
+  color: #B0C4DE;
+  margin-left: 80% 
+}
