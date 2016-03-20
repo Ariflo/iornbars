@@ -13,13 +13,6 @@ a {
 	margin-top: 10%;
 }
 
-.form-control{
-	transition: 5s linear all;  
-	border: solid white  !important;
-	background-color: rgba(0,0,0,0)  !important;
-	border-radius: 5px;
-}
-
 .jumbotron{
     background: center url("/images/iornbars.jpg");
     background-size: cover;
@@ -28,6 +21,15 @@ a {
     color: white;
     font-size: 14px;
 }
+
+.form-control{
+	transition: 5s linear all;  
+	border: solid white  !important;
+	background-color: rgba(0,0,0,0)  !important;
+	border-radius: 5px;
+	color: white !important;
+}
+
 
 #chancesButton {
   transition: 5s linear all;  

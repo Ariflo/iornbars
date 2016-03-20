@@ -16,3 +16,13 @@ nightmare.goto('http://www.sentencingproject.org/map/map.cfm')
 	console.log(data);
 })
 ```
+
+To properly get jquery to work upon route change 
+```
+	$scope.$on('$routeChangeSuccess', function () {
+	  	$(".form-control").typed({
+	  	  strings: ["First sentence.", "Second sentence."],
+	  	  typeSpeed: 0
+	  	});
+	});
+```
