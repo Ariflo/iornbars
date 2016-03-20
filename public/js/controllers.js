@@ -68,21 +68,21 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			}, 18000)
 	}, 25000); 
 
-	//render heading text 
-	$scope.texttyping = ["What Are Your Chances?"]
+	//Render heading text 
+	$scope.texttyping = ["What Are Your Chances?"];
+
 
 	//Render example input text          
 	$scope.$on('$routeChangeSuccess', function () {
 		$timeout(function(){    
 			$(".form-control").typed({
-			  strings: ["I am a 25 year-old white male living in the state of California",
-			  	    "I am a 17 year-old hispanic female living in New York",
-			  	    "I am a 45 year-old black man living in Illinois",
-			  	    ""],
-			  typeSpeed: 25
+				 strings: ["I am a 25 year-old white male living in the state of California",
+				  	   "I am a 17 year-old hispanic female living in New York",
+				  	   "I am a 45 year-old black man living in Illinois",
+				  	   ""],
+				 typeSpeed: 25,
+				 contentType: 'text'
 			});
 		}, 3000);
 	});
-	
-
 }]);

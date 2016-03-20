@@ -13,9 +13,13 @@ h2{
    font-size: 3em;
 }
 
+.col-xs-5{ 
+  margin-left:29%;
+  margin-top: 5%;
+}
+
 .col-xs-6{ 
-	margin-left:25%;
-	margin-top: 5%;
+	margin-left:24%;
 }
 
 .jumbotron{
@@ -28,7 +32,7 @@ h2{
 
 .form-control{
 	transition: 5s linear all;  
-	border: solid #ffffff  !important;
+	border: solid #000000  !important;
 	background-color: rgba(0,0,0,0)  !important;
 	border-radius: 5px;
 	color:#ffffff !important;
@@ -41,7 +45,7 @@ h2{
   font-size: 1.5em;
   font-weight: 400;
   text-align: center;
-  border: solid #ffffff;
+  border: solid #000000 ;
   background: transparent;
   border-radius: 5px;
   margin-left: 38%;
@@ -69,4 +73,23 @@ h2{
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+#typed-strings{
+  display: none;
 }
