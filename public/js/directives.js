@@ -8,10 +8,10 @@ iornBars.directive('typedjs', function () {
         template:'<span id="typed-output"></span>',
         link: function ($scope, $element, $attrs) {
           var options = {strings: $scope.strings,
-                          typeSpeed: 10,
+                          typeSpeed: 20,
                           contentType: "html",
                           showCursor:true,
-                          cursorChar:"|"
+                          cursorChar:""
                           };
 
           $(function(){

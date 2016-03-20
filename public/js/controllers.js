@@ -3,7 +3,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//Render bio button 
 	$timeout(function(){
 		$scope.show = true; 
-	}, 500); 	
+	}, 3000); 	
 
 	//Run background-image slide-show
 	$interval(function(){
@@ -69,17 +69,20 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	}, 25000); 
 
 	//render heading text 
-	$scope.texttyping = ["What are your Chances?"]
+	$scope.texttyping = ["What Are Your Chances?"]
 
-
-	//Render example input text                         
+	//Render example input text          
 	$scope.$on('$routeChangeSuccess', function () {
-	  	$(".form-control").typed({
-	  	  strings: ["I am a 25 year-old white male living in the state of California",
-	  	  	    "I am a 17 year-old hispanic female living in New York",
-	  	  	    "I am a 45 year-old black man living in Illinois"],
-	  	  typeSpeed: 0
-	  	});
+		$timeout(function(){    
+			$(".form-control").typed({
+			  strings: ["I am a 25 year-old white male living in the state of California",
+			  	    "I am a 17 year-old hispanic female living in New York",
+			  	    "I am a 45 year-old black man living in Illinois",
+			  	    ""],
+			  typeSpeed: 25
+			});
+		}, 3000);
 	});
+	
 
 }]);
