@@ -80,8 +80,8 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 				  	   "I am a 17 year-old hispanic female living in New York",
 				  	   "I am a 45 year-old black man living in Illinois",
 				  	   ""],
-				 typeSpeed: 25,
-				 contentType: 'text'
+				 typeSpeed: 35,
+				 backSpeed: 0,
 			});
 		}, 3000);
 	});
