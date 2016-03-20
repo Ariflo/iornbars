@@ -126,3 +126,37 @@ h2{
   color: #B0C4DE;
   margin-left: 80% 
 }
+
+.aboutBox{
+   margin-left: 84%;
+   margin-right: .5%;
+   position: absolute; 
+   border-radius: 5px;
+   opacity: .9;
+
+   /* fallback */
+   background-color: #1a82f7;
+   background-repeat: repeat-x;
+
+   /* Safari 4-5, Chrome 1-9 */
+   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
+
+   /* Safari 5.1, Chrome 10+ */
+   background: -webkit-linear-gradient(top, #2F2727, #1a82f7);
+
+   /* Firefox 3.6+ */
+   background: -moz-linear-gradient(top, #2F2727, #1a82f7);
+
+   /* IE 10 */
+   background: -ms-linear-gradient(top, #2F2727, #1a82f7);
+
+   /* Opera 11.10+ */
+   background: -o-linear-gradient(top, #2F2727, #1a82f7);
+
+}
+
+.aboutText{
+  font-family: "Book Antiqua";
+  font-size: 12px !important;
+
+}

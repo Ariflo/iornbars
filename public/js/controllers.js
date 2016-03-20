@@ -3,7 +3,14 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//Render bio button 
 	$timeout(function(){
 		$scope.show = true; 
-	}, 3000); 	
+	}, 3000); 
+
+	//set about display to not render 
+	$scope.displayAbout = false;
+	//Reveal display box upon hover
+	$scope.showAbout = function (){
+		$scope.displayAbout = !$scope.displayAbout;
+	}	
 
 	//Run background-image slide-show
 	$interval(function(){
@@ -72,8 +79,9 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	$scope.texttyping = ["What Are Your Chances?"];
 
 
-	//Render example input text          
+	//Push Jquery logic post successful route        
 	$scope.$on('$routeChangeSuccess', function () {
+		//Render example input 
 		$timeout(function(){    
 			$(".form-control").typed({
 				 strings: ["I am a 25 year-old white male living in the state of California",
@@ -85,6 +93,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			});
 		}, 3000);
 
+		//Hide Navbar upon scroll down
 		$(window).scroll(
 		    {
 		        previousTop: 0
