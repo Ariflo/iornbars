@@ -3,7 +3,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//Render bio button 
 	$timeout(function(){
 		$scope.show = true; 
-	}, 3000); 
+	}, 5000); 
 
 	//set about display to not render 
 	$scope.displayAbout = false;
@@ -84,14 +84,14 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		//Render example input 
 		$timeout(function(){    
 			$(".form-control").typed({
-				 strings: ["I am a 25 year-old white male living in the state of California",
-				  	   "I am a 17 year-old hispanic female living in New York",
-				  	   "I am a 45 year-old black man living in Illinois",
+				 strings: ["I am a 25 year-old white male living in the state of California ",
+				  	   "I am a 17 year-old hispanic female living in New York ",
+				  	   "I am a 45 year-old black man living in Illinois ",
 				  	   ""],
 				 typeSpeed: 35,
 				 backSpeed: 0,
 			});
-		}, 3000);
+		}, 10000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(
