@@ -132,7 +132,7 @@ h2{
    margin-right: .5%;
    position: absolute; 
    border-radius: 5px;
-   
+
     background: -moz-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, bottom right, color-stop(rgba(224, 224, 209, .2)), color-stop(rgba(235, 235, 224, .8))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* Chrome10+,Safari5.1+ */
@@ -146,5 +146,4 @@ h2{
 .aboutText{
   font-family: "Book Antiqua";
   font-size: 12px !important;
-
 }
