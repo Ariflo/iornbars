@@ -40,30 +40,19 @@ var  deleteAllStates = function(){
 var populateDb = function(){
 
 //Entire state seed data 
-  for(var i =2; i < statesPopData.length; i += 3){
-    addState({
-      state_name: statesPopData[i].Geography
-      male_population: statesPopData[i+1].Total
-      female_population: statesPopData[i].Total
-
-    });
-    // //female seed state data
-    // updateState(statesPopData[i].Geography, {female_population: statesPopData[i].Total});
-
-    // updateState(statesPopData[i+1].Geography, {male_population: statesPopData[i+1].Total});
+for(var i = 0; i < statesPopData.length; i += 3){
+      addState({
+        state_name: statesPopData[i + 2].Geography,
+        male_population: statesPopData[i+1].Total,
+        female_population: statesPopData[i].Total,
+        white_population: statesPopData[i + 2]['Race Alone - White'],
+        black_population: statesPopData[i + 2]['Race Alone - Black or African American'],
+        hispanic_population: statesPopData[i + 2]['Two or More Races'],
+        other_population: statesPopData[i + 2]['Race Alone - Asian'],
+      });
 }
 
-
-// for(var i =0; i < statesPopData.length; i += 3){
-    
-// }
-
-// //male seed state data  
-// for(var i =1; i < statesPopData.length; i += 3){
-    
-// }
-
-// }
+}
 
 module.exports = {
   AllStates: States,
