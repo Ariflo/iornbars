@@ -78,6 +78,11 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//Render heading text 
 	$scope.texttyping = ["What Are Your Chances?"];
 
+	//Scroll to map
+	$scope.goToMap = function(eID) {
+	  anchorSmoothScroll.scrollTo(eID)
+	};
+
 
 	//Push Jquery logic post successful route        
 	$scope.$on('$routeChangeSuccess', function () {

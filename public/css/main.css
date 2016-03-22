@@ -147,3 +147,25 @@ h2{
   font-family: "Book Antiqua";
   font-size: 12px !important;
 }
+
+#footer{
+   position:absolute;
+   width:100%;
+   margin-left: 43%;
+   margin-top: 10%; 
+}
+
+.glyphicon{
+  float: left;
+  font-size: 20px;
+  }
+
+.footerNote{
+ float: left;
+ margin-right: 1%;
+}
+
+.footerDate{
+  float: left;
+  margin-left: 1%;
+}
