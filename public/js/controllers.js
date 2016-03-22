@@ -133,7 +133,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		var g = svg.append("g")
 		    .style("stroke-width", "1.5px");
 
-		d3.json("us.json", function(error, us) {
+		d3.json("USA.json", function(error, us) {
 		  if (error) throw error;
 
 		  g.selectAll("path")
