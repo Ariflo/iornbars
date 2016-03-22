@@ -2,3 +2,5 @@ node_modules/
 .DS_Store
 npm-debug.log
 .env
+ne_10m_admin_0_map_subunits
+ne_10m_populated_places
