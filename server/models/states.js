@@ -53,23 +53,21 @@ var populateDb = function(){
           black_population: statesPopData[i + 2]['Race Alone - Black or African American'],
           hispanic_population: statesPopData[i + 2]['Two or More Races'],
           other_population: other,
-          male_jailed_population: '',
-          female_jailed_population: '',
-          white_jailed_population: '',
-          black_jailed_population:'',
-          hispanic_jailed_population:'',
-          other_jailed_population:''
+          male_jailed_population: 0,
+          female_jailed_population: 0,
+          white_jailed_population: 0,
+          black_jailed_population:0,
+          hispanic_jailed_population:0,
+          other_jailed_population:0
         });
   }
 
-   
-
   for(var i = 0; i < popGenderData.length; i++){
 
-      var whitePopulation = (popGenderData[i].White_rate * popGenderData[i].Total)/100000;
-      var blackPopulation = (popGenderData[i].Black_rate * popGenderData[i].Total)/100000;
-      var hispanicPopulation = (popGenderData[i].Hispanic_rate * popGenderData[i].Total)/100000;
-      var otherPopulation = (popGenderData[i].Other_rate * popGenderData[i].Total)/100000;
+      var whitePopulation = (popGenderData[i].White_rate * (parseInt(popGenderData[i].Total)/100000));
+      var blackPopulation = (popGenderData[i].Black_rate * (parseInt(popGenderData[i].Total)/100000));
+      var hispanicPopulation = (popGenderData[i].Hispanic_rate * (parseInt(popGenderData[i].Total)/100000));
+      var otherPopulation = (popGenderData[i].Other_rate * (parseInt(popGenderData[i].Total)/100000));
 
       updateState(popGenderData[i].Jurisdiction, {male_jailed_population: popGenderData[i].Male});
       updateState(popGenderData[i].Jurisdiction, {female_jailed_population: popGenderData[i].Female});

@@ -4,18 +4,20 @@ exports.up = function(knex, Promise) {
     //state ID
     table.increments();
     table.string('state_name');
-    table.string('male_population');
-    table.string('female_population');
-    table.string('white_population');
-    table.string('black_population');
-    table.string('hispanic_population');
-    table.string('other_population');
-    table.string('male_jailed_population');
-    table.string('female_jailed_population');
-    table.string('white_jailed_population');
-    table.string('black_jailed_population');
-    table.string('hispanic_jailed_population');
-    table.string('other_jailed_population');
+
+    table.integer('male_population');
+    table.integer('female_population');
+    table.integer('white_population');
+    table.integer('black_population');
+    table.integer('hispanic_population');
+    table.integer('other_population');
+    table.integer('male_jailed_population');
+    table.integer('female_jailed_population');
+
+    table.decimal('white_jailed_population');
+    table.decimal('black_jailed_population');
+    table.decimal('hispanic_jailed_population');
+    table.decimal('other_jailed_population');
   });
 };
 
