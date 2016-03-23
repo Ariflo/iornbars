@@ -2,7 +2,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	                                     function($scope,  $http,  $parse,  $location,   $routeParams, $timeout, $anchorScroll, $interval, anchorSmoothScroll) {    
 
 	//set up variable to prevent scroll down to map unitl user input has been validated
-	var preventScroll = false;	
+	var preventScroll = true;	
 
 	//Set-up user object
 	$scope.user = {};
@@ -88,7 +88,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 
 	//Scroll to map
 	$scope.goToMap = function(eID) {
-		if(preventScroll){
+		if(!preventScroll){
 			anchorSmoothScroll.scrollTo(eID);
 		}
 	};
@@ -101,22 +101,24 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			url: "/api/states"
 
 		}).then(function(state){
+			var foundState = false;
 			//validate if input contains a US State
 			for(var i = 0; i< state.data.length; i++){
 				var userInput = userInfo.toLowerCase(); 
-
+				
 				if(userInput.includes(state.data[i].state_name.toLowerCase())){
 					//validate if user entered demographic information 
+					foundState  = true;
 					var re = /hispanic|black|white|male|female/g;
 					if(re.test(userInput)){
 						var demographics = userInput.match(re);
 						demographics.push(state.data[i].state_name);
-			
-						preventScroll = true;	
+
+						preventScroll = false;	
 					}
 				}
 			}
-			if (!preventScroll) {
+			if (!foundState) {
 				$scope.user.info = "Please provide a State"; 
 			}
 		}).catch(function(err){
