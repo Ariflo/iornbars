@@ -4,326 +4,530 @@
 [
   {
     "Jurisdiction": "U.S.total",
-    "Total/b": "6,814,600",
+    "Total": "6,814,600",
     "Male": "5,563,100",
     "Female": "1,251,600"
   },
   {
-    "Jurisdiction": "Federal/d",
-    "Total/b": "338,000",
+    "Jurisdiction": "Federal",
+    "Total": "338,000",
     "Male": "300,600",
     "Female": "37,400"
   },
   {
     "Jurisdiction": "State",
-    "Total/b": "6,476,600",
+    "Total": "6,476,600",
     "Male": "5,262,500",
     "Female": "1,214,100"
   },
   {
     "Jurisdiction": "Alabama",
-    "Total/b": "104,900",
+    "Total": "104,900",
     "Male": "87,400",
-    "Female": "17,500"
+    "Female": "17,500",
+    "White_rate":535,
+    "Hispanic_rate":767,
+    "Black_rate":1788,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Alaska",
-    "Total/b": "14,600",
+    "Total": "14,600",
     "Male": "12,100",
-    "Female": "2,400"
+    "Female": "2,400",
+    "White_rate":370,
+    "Hispanic_rate":650,
+    "Black_rate":1294,
+    "Other_rate":2167
   },
   {
     "Jurisdiction": "Arizona",
-    "Total/b": "133,600",
+    "Total": "133,600",
     "Male": "111,900",
-    "Female": "21,700"
+    "Female": "21,700",
+    "White_rate":633,
+    "Hispanic_rate":1453,
+    "Black_rate":3184,
+    "Other_rate":2267
   },
   {
     "Jurisdiction": "Arkansas",
-    "Total/b": "69,100",
+    "Total": "69,100",
     "Male": "55,500",
-    "Female": "13,500"
+    "Female": "13,500",
+    "White_rate":593,
+    "Hispanic_rate":915,
+    "Black_rate":2432,
+    "Other_rate":751
   },
   {
     "Jurisdiction": "California",
-    "Total/b": "589,600",
+    "Total": "589,600",
     "Male": "495,500",
-    "Female": "94,100"
+    "Female": "94,100",
+    "White_rate":453,
+    "Hispanic_rate":757,
+    "Black_rate":3036,
+    "Other_rate":996
   },
   {
     "Jurisdiction": "Colorado",
-    "Total/b": "119,800",
+    "Total": "119,800",
     "Male": "94,000",
-    "Female": "25,800"
+    "Female": "25,800",
+    "White_rate":509,
+    "Hispanic_rate":1280,
+    "Black_rate":3651,
+    "Other_rate":2939
   },
   {
     "Jurisdiction": "Connecticut",
-    "Total/b": "62,300",
+    "Total": "62,300",
     "Male": "51,500",
-    "Female": "10,700"
+    "Female": "10,700",
+    "White_rate":241,
+    "Hispanic_rate":1195,
+    "Black_rate":2260,
+    "Other_rate":764
   },
   {
     "Jurisdiction": "Delaware",
-    "Total/b": "23,300",
+    "Total": "23,300",
     "Male": "18,800",
-    "Female": "4,500"
+    "Female": "4,500",
+    "White_rate":414,
+    "Hispanic_rate":0,
+    "Black_rate":2002,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "District of Columbia",
-    "Total/b": "11,900",
+    "Total": "11,900",
     "Male": "10,200",
-    "Female": "1,800"
+    "Female": "1,800",
+    "White_rate":0,
+    "Hispanic_rate":0,
+    "Black_rate":0,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Florida",
-    "Total/b": "382,600",
+    "Total": "382,600",
     "Male": "308,800",
-    "Female": "73,700"
+    "Female": "73,700",
+    "White_rate":626,
+    "Hispanic_rate":0,
+    "Black_rate":2555,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Georgia",
-    "Total/b": "579,600",
+    "Total": "579,600",
     "Male": "463,800",
-    "Female": "115,800"
+    "Female": "115,800",
+    "White_rate":640,
+    "Hispanic_rate":1099,
+    "Black_rate":2036,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Hawaii",
-    "Total/b": "28,300",
+    "Total": "28,300",
     "Male": "22,300",
-    "Female": "6,000"
+    "Female": "6,000",
+    "White_rate":412,
+    "Hispanic_rate":415,
+    "Black_rate":1032,
+    "Other_rate":2239
   },
   {
     "Jurisdiction": "Idaho",
-    "Total/b": "48,600",
+    "Total": "48,600",
     "Male": "37,700",
-    "Female": "10,900"
+    "Female": "10,900",
+    "White_rate":656,
+    "Hispanic_rate":1026,
+    "Black_rate":3252,
+    "Other_rate":1763
   },
   {
     "Jurisdiction": "Illinois",
-    "Total/b": "219,000",
+    "Total": "219,000",
     "Male": "181,000",
-    "Female": "38,000"
+    "Female": "38,000",
+    "White_rate":258,
+    "Hispanic_rate":472,
+    "Black_rate":2128,
+    "Other_rate":821
   },
   {
     "Jurisdiction": "Indiana",
-    "Total/b": "175,200",
+    "Total": "175,200",
     "Male": "139,300",
-    "Female": "35,900"
+    "Female": "35,900",
+    "White_rate": 542,
+    "Hispanic_rate":781,
+    "Black_rate":2814,
+    "Other_rate":888
   },
   {
     "Jurisdiction": "Iowa",
-    "Total/b": "46,500",
+    "Total": "46,500",
     "Male": "36,600",
-    "Female": "9,900"
+    "Female": "9,900",
+    "White_rate":324,
+    "Hispanic_rate":692,
+    "Black_rate":3473,
+    "Other_rate":2274
   },
   {
     "Jurisdiction": "Kanasas",
-    "Total/b": "37,400",
+    "Total": "37,400",
     "Male": "31,200",
-    "Female": "6,200"
+    "Female": "6,200",
+    "White_rate":418,
+    "Hispanic_rate":873,
+    "Black_rate":3306,
+    "Other_rate":1197
   },
   {
     "Jurisdiction": "Kentucky",
-    "Total/b": "103,600",
+    "Total": "103,600",
     "Male": "77,900",
-    "Female": "25,700"
+    "Female": "25,700",
+    "White_rate":705,
+    "Hispanic_rate":1657,
+    "Black_rate":3545,
+    "Other_rate":2490
   },
   {
     "Jurisdiction": "Louisiana",
-    "Total/b": "113,600",
+    "Total": "113,600",
     "Male": "96,300",
-    "Female": "17,400"
+    "Female": "17,400",
+    "White_rate":675,
+    "Hispanic_rate":1114,
+    "Black_rate":2749,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Maine",
-    "Total/b": "10,100",
+    "Total": "10,100",
     "Male": "8,400",
-    "Female": "1,700"
+    "Female": "1,700",
+    "White_rate":259,
+    "Hispanic_rate":407,
+    "Black_rate":1553,
+    "Other_rate":747
   },
   {
     "Jurisdiction": "Maryland",
-    "Total/b": "109,700",
+    "Total": "109,700",
     "Male": "92,100",
-    "Female": "17,700"
+    "Female": "17,700",
+    "White_rate":310,
+    "Hispanic_rate":311,
+    "Black_rate":1437,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Massachusetts",
-    "Total/b": "90,300",
+    "Total": "90,300",
     "Male": "75,900",
-    "Female": "14,400"
+    "Female": "14,400",
+    "White_rate":241,
+    "Hispanic_rate":928,
+    "Black_rate":1502,
+    "Other_rate":981
   },
   {
-    "Jurisdiction": "Michigan/d",
-    "Total/b": "256,700",
+    "Jurisdiction": "Michigan",
+    "Total": "256,700",
     "Male": "203,200",
-    "Female": "53,400"
+    "Female": "53,400",
+    "White_rate":374,
+    "Hispanic_rate":588,
+    "Black_rate":2169,
+    "Other_rate":924
   },
   {
     "Jurisdiction": "Minnesota",
-    "Total/b": "120,500",
+    "Total": "120,500",
     "Male": "95,500",
-    "Female": "25,000"
+    "Female": "25,000",
+    "White_rate":216,
+    "Hispanic_rate":959,
+    "Black_rate":2321,
+    "Other_rate":2646
   },
   {
     "Jurisdiction": "Mississippi",
-    "Total/b": "69,700",
+    "Total": "69,700",
     "Male": "58,200",
-    "Female": "11,500"
+    "Female": "11,500",
+    "White_rate":600,
+    "Hispanic_rate":4869,
+    "Black_rate":1788,
+    "Other_rate":1031
   },
   {
     "Jurisdiction": "Missouri",
-    "Total/b": "109,500",
+    "Total": "109,500",
     "Male": "89,400",
-    "Female": "20,100"
+    "Female": "20,100",
+    "White_rate":495,
+    "Hispanic_rate":654,
+    "Black_rate":2337,
+    "Other_rate":687
   },
   {
     "Jurisdiction": "Montana",
-    "Total/b": "14,500",
+    "Total": "14,500",
     "Male": "11,700",
-    "Female": "2,800"
+    "Female": "2,800",
+    "White_rate":423,
+    "Hispanic_rate":994,
+    "Black_rate":3601,
+    "Other_rate":1912
   },
   {
     "Jurisdiction": "Nebraska",
-    "Total/b": "22,500",
+    "Total": "22,500",
     "Male": "17,800",
-    "Female": "4,700"
+    "Female": "4,700",
+    "White_rate":282,
+    "Hispanic_rate":867,
+    "Black_rate":2452,
+    "Other_rate":1780
   },
   {
     "Jurisdiction": "Nevada",
-    "Total/b": "37,500",
+    "Total": "37,500",
     "Male": "31,400",
-    "Female": "6,100"
+    "Female": "6,100",
+    "White_rate":604,
+    "Hispanic_rate":635,
+    "Black_rate":2624,
+    "Other_rate":1329
   },
   {
     "Jurisdiction": "New Hampshire",
-    "Total/b": "11,200",
+    "Total": "11,200",
     "Male": "9,300",
-    "Female": "1,900"
+    "Female": "1,900",
+    "White_rate":336,
+    "Hispanic_rate":954,
+    "Black_rate":2241,
+    "Other_rate":1143
   },
   {
     "Jurisdiction": "New Jersey",
-    "Total/b": "164,500",
+    "Total": "164,500",
     "Male": "137,300",
-    "Female": "27,200"
+    "Female": "27,200",
+    "White_rate":218,
+    "Hispanic_rate":609,
+    "Black_rate":1992,
+    "Other_rate":727
   },
   {
     "Jurisdiction": "New Mexico",
-    "Total/b": "32,500",
+    "Total": "32,500",
     "Male": "26,000",
-    "Female": "6,500"
+    "Female": "6,500",
+    "White_rate":659,
+    "Hispanic_rate":980,
+    "Black_rate":2609,
+    "Other_rate":1045
   },
   {
     "Jurisdiction": "New York",
-    "Total/b": "222,100",
+    "Total": "222,100",
     "Male": "192,300",
-    "Female": "29,800"
+    "Female": "29,800",
+    "White_rate":219,
+    "Hispanic_rate":607,
+    "Black_rate":1655,
+    "Other_rate":709
   },
   {
     "Jurisdiction": "North Carolina",
-    "Total/b": "153,600",
+    "Total": "153,600",
     "Male": "124,100",
-    "Female": "29,500"
+    "Female": "29,500",
+    "White_rate":357,
+    "Hispanic_rate":491,
+    "Black_rate":1665,
+    "Other_rate":883
   },
   {
     "Jurisdiction": "North Dakota",
-    "Total/b": "9,300",
+    "Total": "9,300",
     "Male": "7,300",
-    "Female": "2,000"
+    "Female": "2,000",
+    "White_rate":245,
+    "Hispanic_rate":1032,
+    "Black_rate":1671,
+    "Other_rate":1984
   },
   {
     "Jurisdiction": "Ohio",
-    "Total/b": "326,300",
+    "Total": "326,300",
     "Male": "251,000",
-    "Female": "75,300"
+    "Female": "75,300",
+    "White_rate":422,
+    "Hispanic_rate":1072,
+    "Black_rate":2336,
+    "Other_rate":704
   },
   {
     "Jurisdiction": "Oklahoma",
-    "Total/b": "69,600",
+    "Total": "69,600",
     "Male": "57,700",
-    "Female": "11,900"
+    "Female": "11,900",
+    "White_rate":767,
+    "Hispanic_rate":1876,
+    "Black_rate":3796,
+    "Other_rate":1059
   },
   {
     "Jurisdiction": "Oregon",
-    "Total/b": "82,700",
+    "Total": "82,700",
     "Male": "68,200",
-    "Female": "14,500"
+    "Female": "14,500",
+    "White_rate":506,
+    "Hispanic_rate":809,
+    "Black_rate":3195,
+    "Other_rate":1316
   },
   {
     "Jurisdiction": "Pennsylvania",
-    "Total/b": "360,800",
+    "Total": "360,800",
     "Male": "284,700",
-    "Female": "76,100"
+    "Female": "76,100",
+    "White_rate":375,
+    "Hispanic_rate":2001,
+    "Black_rate":3269,
+    "Other_rate":1032
   },
   {
     "Jurisdiction": "Rhode Island",
-    "Total/b": "25,100",
+    "Total": "25,100",
     "Male": "21,300",
-    "Female": "3,800"
+    "Female": "3,800",
+    "White_rate":210,
+    "Hispanic_rate":697,
+    "Black_rate":1884,
+    "Other_rate":446
   },
   {
     "Jurisdiction": "South Carolina",
-    "Total/b": "71,900",
+    "Total": "71,900",
     "Male": "61,000",
-    "Female": "10,800"
+    "Female": "10,800",
+    "White_rate":433,
+    "Hispanic_rate":1205,
+    "Black_rate":1996,
+    "Other_rate":1055
   },
   {
     "Jurisdiction": "South Dakota",
-    "Total/b": "14,500",
+    "Total": "14,500",
     "Male": "11,600",
-    "Female": "2,800"
+    "Female": "2,800",
+    "White_rate":508,
+    "Hispanic_rate":1727,
+    "Black_rate":4664,
+    "Other_rate":2579
   },
   {
     "Jurisdiction": "Tennessee",
-    "Total/b": "119,900",
+    "Total": "119,900",
     "Male": "95,900",
-    "Female": "24,000"
+    "Female": "24,000",
+    "White_rate":503,
+    "Hispanic_rate":595,
+    "Black_rate":1962,
+    "Other_rate":665
   },
   {
     "Jurisdiction": "Texas",
-    "Total/b": "699,300",
+    "Total": "699,300",
     "Male": "564,200",
-    "Female": "135,100"
+    "Female": "135,100",
+    "White_rate":768,
+    "Hispanic_rate":972,
+    "Black_rate": 2855,
+    "Other_rate":0
   },
   {
     "Jurisdiction": "Utah",
-    "Total/b": "25,700",
+    "Total": "25,700",
     "Male": "20,600",
-    "Female": "5,100"
+    "Female": "5,100",
+    "White_rate":367,
+    "Hispanic_rate":832,
+    "Black_rate":2711,
+    "Other_rate":1488
   },
   {
     "Jurisdiction": "Vermont",
-    "Total/b": "8,400",
+    "Total": "8,400",
     "Male": "6,700",
-    "Female": "1,700"
+    "Female": "1,700",
+    "White_rate":220,
+    "Hispanic_rate":891,
+    "Black_rate":2214,
+    "Other_rate":1314
   },
   {
     "Jurisdiction": "Virginia",
-    "Total/b": "115,300",
+    "Total": "115,300",
     "Male": "95,900",
-    "Female": "19,400"
+    "Female": "19,400",
+    "White_rate":466,
+    "Hispanic_rate":482,
+    "Black_rate":2418,
+    "Other_rate":654
   },
   {
     "Jurisdiction": "Washington",
-    "Total/b": "133,000",
+    "Total": "133,000",
     "Male": "106,600",
-    "Female": "26,500"
+    "Female": "26,500",
+    "White_rate": 392,
+    "Hispanic_rate":601,
+    "Black_rate":2372,
+    "Other_rate":1427
   },
   {
     "Jurisdiction": "West Virginia",
-    "Total/b": "19,600",
+    "Total": "19,600",
     "Male": "15,500",
-    "Female": "4,100"
+    "Female": "4,100",
+    "White_rate":622,
+    "Hispanic_rate":4585,
+    "Black_rate":7360,
+    "Other_rate":2561
   },
   {
     "Jurisdiction": "Wisconsin",
-    "Total/b": "97,300",
+    "Total": "97,300",
     "Male": "82,300",
-    "Female": "15,000"
+    "Female": "15,000",
+    "White_rate":416,
+    "Hispanic_rate":622,
+    "Black_rate":4042,
+    "Other_rate":2639
   },
   {
     "Jurisdiction": "Wyoming",
-    "Total/b": "9,700",
+    "Total": "9,700",
     "Male": "7,700",
-    "Female": "2,000"
+    "Female": "2,000",
+    "White_rate":532,
+    "Hispanic_rate":1059,
+    "Black_rate":3075,
+    "Other_rate":2220
   }
 ]

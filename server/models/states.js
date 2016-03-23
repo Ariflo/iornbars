@@ -40,6 +40,7 @@ var  deleteAllStates = function(){
 
 // populated states table with node server/models/populateStates
 var populateDb = function(){
+
   for(var i = 0; i < statesPopData.length; i += 3){
 
         var other = statesPopData[i + 2]['Race Alone - Asian'] + statesPopData[i + 2]['Race Alone - Native Hawaiian and Other Pacific Islander'];
@@ -51,15 +52,32 @@ var populateDb = function(){
           white_population: statesPopData[i + 2]['Race Alone - White'],
           black_population: statesPopData[i + 2]['Race Alone - Black or African American'],
           hispanic_population: statesPopData[i + 2]['Two or More Races'],
-          other_population: other
+          other_population: other,
+          male_jailed_population: '',
+          female_jailed_population: '',
+          white_jailed_population: '',
+          black_jailed_population:'',
+          hispanic_jailed_population:'',
+          other_jailed_population:''
         });
   }
 
+   
+
   for(var i = 0; i < popGenderData.length; i++){
+
+      var whitePopulation = (popGenderData[i].White_rate * popGenderData[i].Total)/100000;
+      var blackPopulation = (popGenderData[i].Black_rate * popGenderData[i].Total)/100000;
+      var hispanicPopulation = (popGenderData[i].Hispanic_rate * popGenderData[i].Total)/100000;
+      var otherPopulation = (popGenderData[i].Other_rate * popGenderData[i].Total)/100000;
+
       updateState(popGenderData[i].Jurisdiction, {male_jailed_population: popGenderData[i].Male});
       updateState(popGenderData[i].Jurisdiction, {female_jailed_population: popGenderData[i].Female});
+      updateState(popGenderData[i].Jurisdiction, {white_jailed_population: whitePopulation });
+      updateState(popGenderData[i].Jurisdiction, {black_jailed_population: blackPopulation});
+      updateState(popGenderData[i].Jurisdiction, {hispanic_jailed_population: hispanicPopulation});
+      updateState(popGenderData[i].Jurisdiction, {other_jailed_population: otherPopulation});
   }
-
 }
 
 module.exports = {
