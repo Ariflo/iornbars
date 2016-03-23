@@ -101,14 +101,15 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			url: "/api/states"
 
 		}).then(function(state){
-			var foundState = false;
-			//validate if input contains a US State
+			foundState = false;
+			
 			for(var i = 0; i< state.data.length; i++){
 				var userInput = userInfo.toLowerCase(); 
-				
+				//validate if input contains a US State
 				if(userInput.includes(state.data[i].state_name.toLowerCase())){
-					//validate if user entered demographic information 
 					foundState  = true;
+
+					//validate if user entered demographic information 
 					var re = /hispanic|black|white|male|female/g;
 					if(re.test(userInput)){
 						var demographics = userInput.match(re);
