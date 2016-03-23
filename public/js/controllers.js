@@ -8,9 +8,9 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	$scope.user = {};
 
 	//Render bio button 
-	$timeout(function(){
+	//$timeout(function(){
 		$scope.show = true; 
-	}, 5000); 
+	//}, 5000); 
 
 	//Set about display to not render 
 	$scope.displayAbout = false;
@@ -106,29 +106,19 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 				var userInput = userInfo.toLowerCase(); 
 
 				if(userInput.includes(state.data[i].state_name.toLowerCase())){
-					console.log(state.data[i].state_name);
-					var re = new RegExp('/\bhispanic|black|white|male|female\b/');
-					console.log(re.test(userInput));
-
-					// var race = ['white', 'black', 'hispanic'];
-
-					// //validate if input contains race data
-					// for(var i = 0; i < race.length; i++){
-					// 	if(userInput.includes(race[i])){
-					// 		console.log(race[i]);
-					// 		var gender = ['male', 'female'];
-
-					// 		//validate if input contains gender data
-					// 		for(var i = 0; i < gender.length; i++){
-					// 			if(userInput.includes(gender[i])){
-					// 				preventScroll = true;
-					// 				console.log(gender[i]);
-					// 			}
-					// 		}
-					// 	}
-					// }
+					//validate if user entered demographic information 
+					var re = /hispanic|black|white|male|female/g;
+					if(re.test(userInput)){
+						var demographics = userInput.match(re);
+						demographics.push(state.data[i].state_name);
+			
+						preventScroll = true;	
+					}
 				}
-			};
+			}
+			if (!preventScroll) {
+				$scope.user.info = "Please provide a State"; 
+			}
 
 		}).catch(function(err){
 			console.log(err);
