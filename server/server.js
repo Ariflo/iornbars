@@ -4,8 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('../routes/index');
+var router = require('./controllers/routes');
 
 // load dotenv
 require('dotenv').load();
@@ -27,6 +26,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname, '../public/views', 'index.html'));
 });
+
+app.use('/api', router.states);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

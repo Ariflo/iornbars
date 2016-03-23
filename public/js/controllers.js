@@ -1,12 +1,20 @@
 iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location', '$routeParams', '$timeout', '$anchorScroll', '$interval', 'anchorSmoothScroll',
-	                                     function($scope,  $http,  $parse,  $location,   $routeParams, $timeout, $anchorScroll, $interval, anchorSmoothScroll) {
+	                                     function($scope,  $http,  $parse,  $location,   $routeParams, $timeout, $anchorScroll, $interval, anchorSmoothScroll) {    
+
+	//set up variable to prevent scroll down to map unitl user input has been validated
+	var preventScroll = false;	
+
+	//Set-up user object
+	$scope.user = {};
+
 	//Render bio button 
 	$timeout(function(){
 		$scope.show = true; 
 	}, 5000); 
 
-	//set about display to not render 
+	//Set about display to not render 
 	$scope.displayAbout = false;
+
 	//Reveal display box upon hover
 	$scope.showAbout = function (){
 		$scope.displayAbout = !$scope.displayAbout;
@@ -80,23 +88,68 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 
 	//Scroll to map
 	$scope.goToMap = function(eID) {
-	  anchorSmoothScroll.scrollTo(eID)
+		if(preventScroll){
+			anchorSmoothScroll.scrollTo(eID)
+		}
 	};
 
+	//Parse thru user input
+	$scope.inputParser = function(userInfo){
+		//call server for data check
+		$http({
+			method: "GET",
+			url: "/api/states"
 
-	//Push Jquery logic post successful route        
+		}).then(function(state){
+			//validate if input contains a US State
+			for(var i = 0; i< state.data.length; i++){
+				var userInput = userInfo.toLowerCase(); 
+
+				if(userInput.includes(state.data[i].state_name.toLowerCase())){
+					console.log(state.data[i].state_name);
+					var re = new RegExp('/\bhispanic|black|white|male|female\b/');
+					console.log(re.test(userInput));
+
+					// var race = ['white', 'black', 'hispanic'];
+
+					// //validate if input contains race data
+					// for(var i = 0; i < race.length; i++){
+					// 	if(userInput.includes(race[i])){
+					// 		console.log(race[i]);
+					// 		var gender = ['male', 'female'];
+
+					// 		//validate if input contains gender data
+					// 		for(var i = 0; i < gender.length; i++){
+					// 			if(userInput.includes(gender[i])){
+					// 				preventScroll = true;
+					// 				console.log(gender[i]);
+					// 			}
+					// 		}
+					// 	}
+					// }
+				}
+			};
+
+		}).catch(function(err){
+			console.log(err);
+		});
+		
+	}
+
+
+	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
 		//Render example input 
-		$timeout(function(){    
-			$(".form-control").typed({
-				 strings: ["I am a 25 year-old white male living in the state of California ",
-				  	   "I am a 17 year-old hispanic female living in New York ",
-				  	   "I am a 45 year-old black man living in Illinois ",
-				  	   ""],
-				 typeSpeed: 35,
-				 backSpeed: 0,
-			});
-		}, 10000);
+		// $timeout(function(){    
+		// 	$(".form-control").typed({
+		// 		 strings: ["I am a white male living in the state of California ",
+		// 		  	   "I am a hispanic female living in New York ",
+		// 		  	   "I am a black man living in Illinois ",
+		// 		  	   ""],
+		// 		 typeSpeed: 35,
+		// 		 backSpeed: 0,
+		// 	});
+		// }, 10000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(
@@ -112,6 +165,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 				    }
 		    this.previousTop = currentTop;
 		});
+
 
 		//Render d3 US Map
 		var width = 960,
