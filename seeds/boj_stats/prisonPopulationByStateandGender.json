@@ -1,3 +1,6 @@
+//Appendix table 2. Estimated number and rate of persons supervised by U.S. adult correctional systems, by sex and jurisdiction, 2013 and 2014
+//sources: http://www.bjs.gov/index.cfm?ty=pbdetail&iid=5519
+
 [
   {
     "Jurisdiction": "U.S.total",
@@ -18,7 +21,7 @@
     "Female": "1,214,100"
   },
   {
-    "Jurisdiction": "Alabama/d",
+    "Jurisdiction": "Alabama",
     "Total/b": "104,900",
     "Male": "87,400",
     "Female": "17,500"
@@ -66,7 +69,7 @@
     "Female": "4,500"
   },
   {
-    "Jurisdiction": "District of Columbia/e",
+    "Jurisdiction": "District of Columbia",
     "Total/b": "11,900",
     "Male": "10,200",
     "Female": "1,800"
@@ -78,7 +81,7 @@
     "Female": "73,700"
   },
   {
-    "Jurisdiction": "Georgia/f",
+    "Jurisdiction": "Georgia",
     "Total/b": "579,600",
     "Male": "463,800",
     "Female": "115,800"
@@ -90,7 +93,7 @@
     "Female": "6,000"
   },
   {
-    "Jurisdiction": "Idaho/fg",
+    "Jurisdiction": "Idaho",
     "Total/b": "48,600",
     "Male": "37,700",
     "Female": "10,900"
@@ -120,7 +123,7 @@
     "Female": "6,200"
   },
   {
-    "Jurisdiction": "Kentucky/d",
+    "Jurisdiction": "Kentucky",
     "Total/b": "103,600",
     "Male": "77,900",
     "Female": "25,700"
@@ -138,7 +141,7 @@
     "Female": "1,700"
   },
   {
-    "Jurisdiction": "Maryland/d",
+    "Jurisdiction": "Maryland",
     "Total/b": "109,700",
     "Male": "92,100",
     "Female": "17,700"
@@ -300,13 +303,13 @@
     "Female": "19,400"
   },
   {
-    "Jurisdiction": "Washington/d",
+    "Jurisdiction": "Washington",
     "Total/b": "133,000",
     "Male": "106,600",
     "Female": "26,500"
   },
   {
-    "Jurisdiction": "West Virginia/d",
+    "Jurisdiction": "West Virginia",
     "Total/b": "19,600",
     "Male": "15,500",
     "Female": "4,100"
