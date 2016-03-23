@@ -89,13 +89,13 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//Scroll to map
 	$scope.goToMap = function(eID) {
 		if(preventScroll){
-			anchorSmoothScroll.scrollTo(eID)
+			anchorSmoothScroll.scrollTo(eID);
 		}
 	};
 
 	//Parse thru user input
 	$scope.inputParser = function(userInfo){
-		//call server for data check
+		//call server for state data check
 		$http({
 			method: "GET",
 			url: "/api/states"
@@ -119,11 +119,9 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			if (!preventScroll) {
 				$scope.user.info = "Please provide a State"; 
 			}
-
 		}).catch(function(err){
 			console.log(err);
 		});
-		
 	}
 
 
