@@ -64,10 +64,10 @@ var populateDb = function(){
 
   for(var i = 0; i < popGenderData.length; i++){
 
-      var whitePopulation = (popGenderData[i].White_rate * (parseInt(popGenderData[i].Total)/100000));
-      var blackPopulation = (popGenderData[i].Black_rate * (parseInt(popGenderData[i].Total)/100000));
-      var hispanicPopulation = (popGenderData[i].Hispanic_rate * (parseInt(popGenderData[i].Total)/100000));
-      var otherPopulation = (popGenderData[i].Other_rate * (parseInt(popGenderData[i].Total)/100000));
+      var whitePopulation = (popGenderData[i].White_rate * (popGenderData[i].Total/100000));
+      var blackPopulation = (popGenderData[i].Black_rate * (popGenderData[i].Total/100000));
+      var hispanicPopulation = (popGenderData[i].Hispanic_rate * (popGenderData[i].Total/100000));
+      var otherPopulation = (popGenderData[i].Other_rate *(popGenderData[i].Total/100000));
 
       updateState(popGenderData[i].Jurisdiction, {male_jailed_population: popGenderData[i].Male});
       updateState(popGenderData[i].Jurisdiction, {female_jailed_population: popGenderData[i].Female});
