@@ -188,23 +188,11 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 
 		  // our names
 		  d3.tsv("us-state-names.tsv", function(tsv){
-		            //extract just the names and Ids
+		            //extract the names and Ids
 		            var names = {};
 		            tsv.forEach(function(d,i){
 		              names[d.id] = d.code;
 		            });
-
-			g.selectAll("path")
-			      .data(topojson.feature(us, us.objects.states).features)
-			      .enter().append("path")
-			      .attr("d", path)
-			      .attr("class", "feature")
-			      .on("click", clicked);
-
-			g.append("path")
-			      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-			      .attr("class", "mesh")
-			      .attr("d", path);
 
 			g.append("g")
 			  .attr("class", "states-bundle")
