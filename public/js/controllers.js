@@ -157,7 +157,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		    this.previousTop = currentTop;
 		});
 
-
+		
 		//Render d3 US Map
 		var width = 960,
 		    height = 500,
@@ -186,17 +186,58 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		d3.json("USA.json", function(error, us) {
 		  if (error) throw error;
 
-		  g.selectAll("path")
-		      .data(topojson.feature(us, us.objects.states).features)
-		      .enter().append("path")
-		      .attr("d", path)
-		      .attr("class", "feature")
-		      .on("click", clicked);
+		  // our names
+		  d3.tsv("us-state-names.tsv", function(tsv){
+		            //extract just the names and Ids
+		            var names = {};
+		            tsv.forEach(function(d,i){
+		              names[d.id] = d.code;
+		            });
 
-		  g.append("path")
-		      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-		      .attr("class", "mesh")
-		      .attr("d", path);
+			g.selectAll("path")
+			      .data(topojson.feature(us, us.objects.states).features)
+			      .enter().append("path")
+			      .attr("d", path)
+			      .attr("class", "feature")
+			      .on("click", clicked);
+
+			g.append("path")
+			      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+			      .attr("class", "mesh")
+			      .attr("d", path);
+
+			g.append("g")
+			  .attr("class", "states-bundle")
+			  .selectAll("path")
+			  .data(topojson.feature(us, us.objects.states).features)
+			  .enter()
+			  .append("path")
+			  .attr("d", path)
+			  .attr("stroke", "white")
+			  .attr("class", "states")
+			  .attr("id", function(d){
+			      return names[d.id];
+			  })
+			  .on("click", clicked);
+			  
+			 g.append("g")
+			  .attr("class", "states-names")
+			  .selectAll("text")
+			  .data(topojson.feature(us, us.objects.states).features)
+			  .enter()
+			  .append("svg:text")
+			  .text(function(d){
+			    return names[d.id];
+			  })
+			  .attr("x", function(d){
+			      return path.centroid(d)[0];
+			  })
+			  .attr("y", function(d){
+			      return  path.centroid(d)[1];
+			  })
+			  .attr("text-anchor","middle")
+			  .attr('fill', 'white');     
+		      });
 		});
 
 		function clicked(d) {

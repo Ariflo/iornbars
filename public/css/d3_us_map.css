@@ -2,17 +2,21 @@
   margin-left: 7%;
 }
 
+text{
+  font-size: 5px; 
+}
+
 .background {
   fill: none;
   pointer-events: all;
 }
 
-.feature {
+.states {
   fill: #ccc;
   cursor: pointer;
 }
 
-.feature.active {
+.states.active {
   fill: orange;
 }
 
@@ -22,3 +26,4 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
