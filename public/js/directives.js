@@ -20,3 +20,17 @@ iornBars.directive('typedjs', function () {
         }
     };
 });
+
+
+iornBars.directive('clickOn', function () {
+  return {
+          restrict: 'A',
+          link: function(scope, elm, attrs) {
+              scope.$on(attrs.clickOn, function() {
+                  //setTimeout(function() {
+                      document.elm.click()
+                //  }, 100);
+              });
+          }
+      };
+});

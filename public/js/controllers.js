@@ -1,6 +1,5 @@
 iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location', '$routeParams', '$timeout', '$anchorScroll', '$interval', 'anchorSmoothScroll',
-	                                     function($scope,  $http,  $parse,  $location,   $routeParams, $timeout, $anchorScroll, $interval, anchorSmoothScroll) {    
-
+	                                     function($scope, $http,  $parse,  $location,   $routeParams, $timeout, $anchorScroll, $interval, anchorSmoothScroll) {    
 	//set up variable to prevent scroll down to map unitl user input has been validated
 	var preventScroll = true;	
 
@@ -90,6 +89,9 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	$scope.goToMap = function(eID) {
 		if(!preventScroll){
 			anchorSmoothScroll.scrollTo(eID);
+			setTimeout(function() {
+			    document.getElementById("CA").click();
+			}, 0);
 		}
 	};
 
@@ -217,12 +219,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			  .text(function(d){
 			    return names[d.id];
 			  })
-			  .attr("x", function(d){
-			      return path.centroid(d)[0];
-			  })
-			  .attr("y", function(d){
-			      return  path.centroid(d)[1];
-			  })
 			  .attr("text-anchor","middle")
 			  .attr('fill', 'white');     
 		      });
@@ -256,5 +252,34 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		      .style("stroke-width", "1.5px")
 		      .attr("transform", "");
 		}
+
+		$("path").click(function(event) {
+		    event.stopPropagation();
+		    window.alert(getElementPath(this));
+		});
+
+		function getElementPath(element)
+		{
+		    return "//" + $(element).parents().andSelf().map(function() {
+		        var $this = $(this);
+		        var tagName = this.nodeName;
+		        if ($this.siblings(tagName).length > 0) {
+		            tagName += "[" + $this.prevAll(tagName).length + "]";
+		        }
+		        return tagName;
+		    }).get().join("/").toUpperCase();
+		}
+
+		jQuery.fn.d3Click = function () {
+		  this.each(function (i, e) {
+		    var evt = new MouseEvent("click");
+		    e.dispatchEvent(evt);
+		  });
+		};
+
+		setTimeout(function() {
+			$("#CA").d3Click();
+		}, 1000);
+		
 	});
 }]);
