@@ -117,6 +117,10 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 						demographics.push(state.data[i].state_name);
 						preventScroll = false;	
 
+						//set user demo input on DOM 
+						document.getElementById("race").innerHTML = demographics[0];
+						document.getElementById("gender").innerHTML = demographics[1];
+						
 						//function that takes array as input and returns 
 						//array with probabilities
 						$scope.getStats(demographics);
@@ -145,7 +149,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			url: "/api/state/" + demoInfo[2]
 
 		}).then(function(state){
-
 
 			state.data;
 

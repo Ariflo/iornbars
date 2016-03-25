@@ -195,3 +195,7 @@ footer{
    background-color: grey; 
    opacity: .4;
 }
+
+#race, #gender{
+  margin: 2px;
+}
