@@ -184,10 +184,10 @@ footer{
   font-family: 'Source Serif Pro', serif;
   font-weight: 400;
    float: left;
-   width: 960;
-   height: 500;
+   width: 25%;
+   height: 35%;
    bottom: 0;
-   margin-left: 43%;
+   margin-left: 40%;
    margin-top: 15%; 
    pointer-events:none
    z-index: 1;
@@ -198,4 +198,8 @@ footer{
 
 #race, #gender{
   margin: 2px;
+}
+
+.percent, .chance{
+  font-size: 15px;
 }

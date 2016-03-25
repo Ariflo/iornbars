@@ -36,15 +36,16 @@
 </head>
       <body ng-app ="iornbars">
                <div ng-view></div>
-               <div class="stateInfo">
-                  <h1 id="stateHeading"></h1>
-                  <p>As a <span id="race"></span><span id="gender"></span> you have a</p>
-                  <h2><span id="stat"></span>% chance of incarceration</h2>
-                  <p> If you were <span id="race2"></span> your chances would be <span id="stat2"></span></p>
+               <div ng-show="show" class="stateInfo">
+                  <h1 id="stateHeading" class="text-center"></h1>
+                  <p class="text-center">As a <span id="race"></span><span id="gender"></span> you have a</p>
+                  <h2 class="text-center percent"><span id="stat"></span>%</h2> 
+                  <h2 class="text-center chance">chance of incarceration</h2>
+<!--                   <p> If you were <span id="race2"></span> your chances would be <span id="stat2"></span></p>
                   <p> If you were <span id="race3"></span> your chances would be <span id="stat3"></span></p>
                   <p> If you were <span id="race4"></span> your chances would be <span id="stat4"></span></p>
                   <p> If you were <span id="gender"></span> your chances would be <span id="stat5"></span></p>
-                  <p> Click on other States to compare!</p>
+                  <p> Click on other States to compare!</p> -->
                </div>
                <footer>
                   <div class="row">     
