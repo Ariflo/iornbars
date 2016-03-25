@@ -89,9 +89,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	$scope.goToMap = function(eID) {
 		if(!preventScroll){
 			anchorSmoothScroll.scrollTo(eID);
-			setTimeout(function() {
-				angular.element("#CA").d3Click();
-			}, 1000);
 		}
 	};
 
@@ -115,9 +112,15 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 					var re = /hispanic|black|white|male|female/g;
 					if(re.test(userInput)){
 						var demographics = userInput.match(re);
+						//push demographic information to array 
 						demographics.push(state.data[i].state_name);
-
 						preventScroll = false;	
+						
+						//render selected state once input has been validated 
+						$timeout(function() {
+							angular.element('#chancesButton').triggerHandler('click');
+							angular.element("[id= '"+ demographics[2] + "']").d3Click();
+						}, 500);
 					}
 				}
 			}
@@ -197,12 +200,12 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		d3.json("USA.json", function(error, us) {
 		  if (error) throw error;
 
-		  // our names
+		  // state names
 		  d3.tsv("us-state-names.tsv", function(tsv){
 		            //extract the names and Ids
 		            var names = {};
 		            tsv.forEach(function(d,i){
-		              names[d.id] = d.code;
+		              names[d.id] = d.name;
 		            });
 
 			g.append("g")
@@ -260,23 +263,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		      .duration(750)
 		      .style("stroke-width", "1.5px")
 		      .attr("transform", "");
-		}
-
-		$("path").click(function(event) {
-		    event.stopPropagation();
-		    window.alert(getElementPath(this));
-		});
-
-		function getElementPath(element)
-		{
-		    return "//" + $(element).parents().andSelf().map(function() {
-		        var $this = $(this);
-		        var tagName = this.nodeName;
-		        if ($this.siblings(tagName).length > 0) {
-		            tagName += "[" + $this.prevAll(tagName).length + "]";
-		        }
-		        return tagName;
-		    }).get().join("/").toUpperCase();
 		}
 	});
 }]);
