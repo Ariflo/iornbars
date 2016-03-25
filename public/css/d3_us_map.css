@@ -2,9 +2,17 @@
   margin-left: 7%;
 }
 
+svg{
+   position: absolute;
+   z-index: -1;
+   margin-left:auto;
+   display: inline-block;
+}
+
 text{
   font-size: 8px; 
 }
+
 
 .background {
   fill: none;
@@ -27,11 +35,5 @@ text{
   stroke: #fff;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-.key_square{
-  width: 5em;
-  height: 5em;
-  z-index: 2;
 }
 

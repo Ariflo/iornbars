@@ -154,7 +154,7 @@ footer{
    width:100%;
    bottom: 0;
    margin-left: 43%;
-   margin-top: 5%; 
+   margin-top: 60%; 
 }
 
 .glyphicon{
@@ -170,4 +170,16 @@ footer{
 .footerDate{
   float: left;
   margin-left: 1%;
+}
+
+.stateInfo{
+   float: left;
+   height: 100%;
+   width:100%;
+   bottom: 0;
+   margin-left: 43%;
+   margin-top: 15%; 
+   pointer-events:none
+   z-index: 1;
+   
 }

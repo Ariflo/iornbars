@@ -189,7 +189,8 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		var path = d3.geo.path()
 		    .projection(projection);
 
-		var svg = d3.select("#map").append("svg")
+		var svg = d3.select("#map")
+		    .append("svg")
 		    .attr("width", width)
 		    .attr("height", height);
 
@@ -227,24 +228,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			      return names[d.id];
 			  })
 			  .on("click", clicked);
-			  
-			g.append("g")
-			  .attr("class", "states-info")
-			  .selectAll("text")
-			  .data(topojson.feature(us, us.objects.states).features)
-			  .enter()
-			  .append('svg:text')
-			  .text(function(d){
-			      return names[d.code];
-			   })
-			  .attr("x", function(d){
-			      return path.centroid(d)[0];
-			   })
-			  .attr("y", function(d){
-			      return  path.centroid(d)[1];
-			   })
-			  .attr("text-anchor","middle")
-			  .attr('fill', 'white');
 
 		      });
 		});
