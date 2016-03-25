@@ -141,6 +141,11 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	  });
 	};
 
+	$scope.showText = function(){
+
+
+	}
+
 
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
@@ -206,7 +211,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		            var names = {};
 		            tsv.forEach(function(d,i){
 		              names[d.id] = d.name;
-		            });
+		            });		           
 
 			g.append("g")
 			  .attr("class", "states-bundle")
@@ -217,16 +222,30 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			  .attr("d", path)
 			  .attr("stroke", "white")
 			  .attr("class", "states")
+			  .attr("ng-click", "showText()")
 			  .attr("id", function(d){
 			      return names[d.id];
 			  })
 			  .on("click", clicked);
 			  
-			 g.append("g")
-			  .attr("class", "states-names")
+			g.append("g")
+			  .attr("class", "states-info")
 			  .selectAll("text")
 			  .data(topojson.feature(us, us.objects.states).features)
-			  .enter();
+			  .enter()
+			  .append('svg:text')
+			  .text(function(d){
+			      return names[d.code];
+			   })
+			  .attr("x", function(d){
+			      return path.centroid(d)[0];
+			   })
+			  .attr("y", function(d){
+			      return  path.centroid(d)[1];
+			   })
+			  .attr("text-anchor","middle")
+			  .attr('fill', 'white');
+
 		      });
 		});
 

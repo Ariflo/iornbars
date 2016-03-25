@@ -14,10 +14,12 @@ text{
 .states {
   fill: #ccc;
   cursor: pointer;
+  z-index: -1;
 }
 
-.states.active {
+.states.active{
   fill: orange;
+  z-index: -1;
 }
 
 .mesh {
@@ -25,5 +27,11 @@ text{
   stroke: #fff;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.key_square{
+  width: 5em;
+  height: 5em;
+  z-index: 2;
 }
 

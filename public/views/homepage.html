@@ -1,38 +1,32 @@
-<div>
-	<div class="jumbotron" ng-style="set_bgrd_image()">
-		 <div class="nav-bar">
-		    <nav class="col-xs-12">
-		         <a class="logo" ng-href="http://www.ironbars.org" target="_self">Iron Bars</a>
-		         <a class="aboutLink" ng-mouseover="showAbout()" click-on="top">About</a>
-		    </nav>
-		</div>
-		<div class="row">
-			<div class="aboutBox" ng-show="displayAbout">
-				<div class="col-xs-12">
-					<p class="aboutText">Farm-to-table distillery ugh, tousled dreamcatcher master cleanse fap squid. Banjo bitters cold-pressed, pitchfork vinyl iPhone cliche marfa. Cronut cold-pressed pabst, art party scenester mixtape you probably haven't heard of them. Truffaut umami freegan wolf raw denim selfies. Skateboard whatever vinyl listicle. Meditation polaroid XOXO lo-fi. Humblebrag kinfolk photo booth, sustainable cred scenester bicycle rights small batch health goth fap pitchfork kale chips cardigan meh.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-5">
-				<h2 class="text-center"><typedjs strings="texttyping"></typedjs></h2>
-			</div>
-			<div class="col-xs-7">
-				<form ng-submit="inputParser(user.info)">
-					<input type="text" ng-model="user.info" ng-show="show" class="form-control text-center" placeholder="I am...">
-				             <button type="submit" ng-show="show" ng-click="goToMap('map')" id="chancesButton" class="btn btn-md gradient" >Find Out</button>	
-				</form>
 
+<div class="jumbotron" ng-style="set_bgrd_image()">
+	 <div class="nav-bar">
+	    <nav class="col-xs-12">
+	         <a class="logo" ng-href="http://www.ironbars.org" target="_self">Iron Bars</a>
+	         <a class="aboutLink" ng-mouseover="showAbout()" click-on="top">About</a>
+	    </nav>
+	</div>
+	<div class="row">
+		<div class="aboutBox" ng-show="displayAbout">
+			<div class="col-xs-12">
+				<p class="aboutText">Farm-to-table distillery ugh, tousled dreamcatcher master cleanse fap squid. Banjo bitters cold-pressed, pitchfork vinyl iPhone cliche marfa. Cronut cold-pressed pabst, art party scenester mixtape you probably haven't heard of them. Truffaut umami freegan wolf raw denim selfies. Skateboard whatever vinyl listicle. Meditation polaroid XOXO lo-fi. Humblebrag kinfolk photo booth, sustainable cred scenester bicycle rights small batch health goth fap pitchfork kale chips cardigan meh.</p>
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-5">
+			<h2 class="text-center"><typedjs strings="texttyping"></typedjs></h2>
+		</div>
+		<div class="col-xs-7">
+			<form ng-submit="inputParser(user.info)">
+				<input type="text" ng-model="user.info" ng-show="show" class="form-control text-center" placeholder="I am...">
+			             <button type="submit" ng-show="show" ng-click="goToMap('map')" id="chancesButton" class="btn btn-md gradient" >Find Out</button>	
+			</form>
+
 		</div>
 	</div>
 </div>
-<div>
-	<div id="map">
 
-	</div>
-	<div id="stateInfo">
-		 <img src="https://appharbor.com/assets/images/stackoverflow-logo.png" height="20" width="32" />
-	</div>
-</div>
+
+<div id="map"></div>
 
