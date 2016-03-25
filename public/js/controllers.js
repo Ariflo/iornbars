@@ -4,10 +4,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	var preventScroll = true;	
 
 	//Set-up user object
-	$scope.user = {};	
-
-	//Set-up demographics array
-	//$scope.demographics= [];
+	$scope.user = {};
 
 	//Render bio button 
 	//$timeout(function(){
@@ -120,7 +117,9 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 						demographics.push(state.data[i].state_name);
 						preventScroll = false;	
 
-						//console.log($scope.demographics);
+						//function that takes array as input and returns 
+						//array with probabilities
+						$scope.getStats(demographics);
 						
 						//render selected state once input has been validated 
 						$timeout(function() {
@@ -136,6 +135,24 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		}).catch(function(err){
 			console.log(err);
 		});
+	}
+
+	//send user demographic information to DB
+	$scope.getStats = function(demoInfo){
+		//call server for state data check
+		$http({
+			method: "GET",
+			url: "/api/state/" + demoInfo[2]
+
+		}).then(function(state){
+
+
+			state.data;
+
+		}).catch(function(err){
+			console.log(err);
+		});
+
 	}
 
 	//Invoke click event for d3 map
@@ -177,7 +194,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		    this.previousTop = currentTop;
 		});
 
-		
 		//Render d3 US Map
 		var width = 960,
 		    height = 500,
@@ -225,7 +241,6 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			  .attr("stroke", "#000000")
 			  .attr("stroke-width", ".25")
 			  .attr("class", "states")
-			  .attr("ng-click", "showText()")
 			  .attr("id", function(d){
 			      return names[d.id];
 			  })
@@ -235,6 +250,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		});
 
 		function clicked(d) {
+		  document.getElementById("stateHeading").innerHTML = this.id;
 		  if (active.node() === this) return reset();
 		  active.classed("active", false);
 		  active = d3.select(this).classed("active", true);

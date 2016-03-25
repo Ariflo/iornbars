@@ -3,32 +3,32 @@ var statesPopData = require('../../seeds/boj_stats/StatePopulationData_2014.json
 var popGenderData = require('../../seeds/boj_stats/prisonPopulationByStateandGender.json');
 
 // get all states
-var States = function(){
+var allStates = function(){
   return knex('states');
 }
 
 // create state
 var addState = function(state){
-  States().insert(state).then(function(newState){});
+  allStates().insert(state).then(function(newState){});
 }
 
 // update state
 var updateState = function(state, stateInfo){
-  return States().where({
+  return allStates().where({
     state_name: state
   }).first().update(stateInfo).then(function(updatedState){});
 }
 
 // delete state
 var deleteState = function(state){
-  return States().where({
+  return allStates().where({
     state_name: state
   }).first().del();
 }
 
-// get state by id
-var state = function(stateID){
-  return States().where({id: stateID}).first().then(function(state){
+// get state by name
+var getState = function(stateName){
+  return allStates().where({state_name: stateName}).first().then(function(state){
     return state;
   });
 }
@@ -79,11 +79,11 @@ var populateDb = function(){
 }
 
 module.exports = {
-  AllStates: States,
+  allStates: allStates,
   addState: addState,
   updateState: updateState,
   deleteState: deleteState,
   deleteAllStates: deleteAllStates,
-  state:state,
+  getState:getState,
   populateStates: populateDb
 }
