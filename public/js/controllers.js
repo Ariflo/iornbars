@@ -226,13 +226,7 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			  .attr("class", "states-names")
 			  .selectAll("text")
 			  .data(topojson.feature(us, us.objects.states).features)
-			  .enter()
-			  .append("svg:text")
-			  .text(function(d){
-			    return names[d.id];
-			  })
-			  .attr("text-anchor","middle")
-			  .attr('fill', 'white');     
+			  .enter();
 		      });
 		});
 
