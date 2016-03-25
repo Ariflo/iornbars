@@ -10,9 +10,9 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//$scope.demographics= [];
 
 	//Render bio button 
-	$timeout(function(){
+	//$timeout(function(){
 		$scope.show = true; 
-	}, 5000); 
+	//}, 5000); 
 
 	//Set about display to not render 
 	$scope.displayAbout = false;
@@ -151,16 +151,16 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
 		//Render example input 
-		$timeout(function(){    
-			$(".form-control").typed({
-				 strings: ["I am a white male living in the state of California ",
-				  	   "I am a hispanic female living in New York ",
-				  	   "I am a black man living in Illinois ",
-				  	   ""],
-				 typeSpeed: 35,
-				 backSpeed: 0,
-			});
-		}, 10000);
+		// $timeout(function(){    
+		// 	$(".form-control").typed({
+		// 		 strings: ["I am a white male living in the state of California ",
+		// 		  	   "I am a hispanic female living in New York ",
+		// 		  	   "I am a black man living in Illinois ",
+		// 		  	   ""],
+		// 		 typeSpeed: 35,
+		// 		 backSpeed: 0,
+		// 	});
+		// }, 10000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(
@@ -222,7 +222,8 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			  .enter()
 			  .append("path")
 			  .attr("d", path)
-			  .attr("stroke", "white")
+			  .attr("stroke", "#000000")
+			  .attr("stroke-width", ".25")
 			  .attr("class", "states")
 			  .attr("ng-click", "showText()")
 			  .attr("id", function(d){

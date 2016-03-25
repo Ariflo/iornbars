@@ -19,13 +19,13 @@ text{
 }
 
 .states {
-  fill: #ccc;
+  fill: #ffffff;
   cursor: pointer;
   z-index: -1;
 }
 
 .states.active{
-  fill: orange;
+  fill: #757575;
   z-index: -1;
 }
 
