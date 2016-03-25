@@ -90,8 +90,8 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		if(!preventScroll){
 			anchorSmoothScroll.scrollTo(eID);
 			setTimeout(function() {
-			    document.getElementById("CA").click();
-			}, 0);
+				angular.element("#CA").d3Click();
+			}, 1000);
 		}
 	};
 
@@ -128,6 +128,15 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 			console.log(err);
 		});
 	}
+
+	//Invoke click event for d3 map
+	//http://stackoverflow.com/questions/9063383/how-to-invoke-click-event-programmatically-in-d3
+	angular.element.fn.d3Click = function () {
+	  this.each(function (i, e) {
+	    var evt = new MouseEvent("click");
+	    e.dispatchEvent(evt);
+	  });
+	};
 
 
 	//Push Jquery/JS logic post successful route land       
@@ -269,17 +278,5 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		        return tagName;
 		    }).get().join("/").toUpperCase();
 		}
-
-		jQuery.fn.d3Click = function () {
-		  this.each(function (i, e) {
-		    var evt = new MouseEvent("click");
-		    e.dispatchEvent(evt);
-		  });
-		};
-
-		setTimeout(function() {
-			$("#CA").d3Click();
-		}, 1000);
-		
 	});
 }]);
