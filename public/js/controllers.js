@@ -109,27 +109,29 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 					foundState  = true;
 
 					//validate if user entered demographic information 
-					var re = /hispanic|black|white|male|female/g;
+					var re = /hispanic|black|white|other|male|female/g;
 					if(re.test(userInput)){
+
 						//adding demographic information to scope
 						var demographics = userInput.match(re);
+
 						//push demographic information to array 
 						demographics.push(state.data[i].state_name);
 						preventScroll = false;	
 
-						//set user demo input on DOM 
-						document.getElementById("race").innerHTML = demographics[0];
-						document.getElementById("gender").innerHTML = demographics[1];
-						
-						//function that takes array as input and returns 
-						//array with probabilities
-						$scope.getStats(demographics);
-						
 						//render selected state once input has been validated 
 						$timeout(function() {
 							angular.element('#chancesButton').triggerHandler('click');
 							angular.element("[id= '"+ demographics[2] + "']").d3Click();
 						}, 500);
+
+						//set user demo input on DOM 
+						document.getElementById("race").innerHTML = demographics[0];
+						document.getElementById("gender").innerHTML = demographics[1];
+
+						//function that takes array as input and returns 
+						//array with probabilities
+						getStats(demographics);
 					}
 				}
 			}
@@ -141,22 +143,106 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 		});
 	}
 
-	//send user demographic information to DB
-	$scope.getStats = function(demoInfo){
+	//send user demographic information to db
+	var getStats = function(demoInfo){
 		//call server for state data check
 		$http({
 			method: "GET",
 			url: "/api/state/" + demoInfo[2]
 
 		}).then(function(state){
+			if(demoInfo[0] === "white" && demoInfo[1] === "male"){
 
-			state.data;
+				 var raceProb = (state.data.white_jailed_population/state.data.white_population) * 100;
+				 var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+
+				 var combinedProb = raceProb * genderProb;
+
+				 document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if(demoInfo[0] === "white" && demoInfo[1] === "female"){
+
+				var raceProb = (state.data.white_jailed_population/state.data.white_population) * 100;
+				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if(demoInfo[0] === "black" && demoInfo[1] === "male"){
+
+				var raceProb = (state.data.black_jailed_population/state.data.black_population) * 100;
+				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+			
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if(demoInfo[0] === "black" && demoInfo[1] === "female"){
+
+				var raceProb = (state.data.black_jailed_population/state.data.black_population) * 100;
+				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+				
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if (demoInfo[0] === "hispanic" && demoInfo[1] === "male"){
+
+				var raceProb = (state.data.hispanic_jailed_population/state.data.hispanic_population) * 100;
+				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+				
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if(demoInfo[0] === "hispanic" && demoInfo[1] === "female"){
+
+				var raceProb = (state.data.hispanic_jailed_population/state.data.hispanic_population) * 100;
+				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if(demoInfo[0] === "other" && demoInfo[1] === "male"){
+
+				var raceProb = (state.data.other_jailed_population/state.data.other_population) * 100;
+				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+				
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+
+			}else if (demoInfo[0] === "other" && demoInfo[1] === "female"){
+
+				var raceProb = (state.data.other_jailed_population/state.data.other_population) * 100;
+				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
+
+				var combinedProb = raceProb * genderProb;
+
+				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
+			}else{
+				console.log("no info!");
+			}
 
 		}).catch(function(err){
 			console.log(err);
 		});
-
 	}
+
+	// document.getElementById("stat2").innerHTML = getStats(["black", demoInfo[1], demoInfo[2]]);
+	// document.getElementById("race2").innerHTML = "black";
+
+	// document.getElementById("stat3").innerHTML = getStats(["hispanic", demoInfo[1], demoInfo[2]]);
+	// document.getElementById("race3").innerHTML = "hispanic";
+
+
+	// document.getElementById("stat4").innerHTML = getStats(["other", demoInfo[1], demoInfo[2]]);
+	// document.getElementById("race4").innerHTML = "other";
+
+	// document.getElementById("stat5").innerHTML = getStats([demoInfo[0], "female", demoInfo[2]]);
+	// document.getElementById("gender2").innerHTML = "female";
 
 	//Invoke click event for d3 map
 	//http://stackoverflow.com/questions/9063383/how-to-invoke-click-event-programmatically-in-d3
