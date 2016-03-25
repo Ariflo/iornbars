@@ -181,5 +181,6 @@ footer{
    margin-top: 15%; 
    pointer-events:none
    z-index: 1;
+   display: none;
    
 }

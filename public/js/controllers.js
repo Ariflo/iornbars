@@ -4,12 +4,15 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	var preventScroll = true;	
 
 	//Set-up user object
-	$scope.user = {};
+	$scope.user = {};	
+
+	//Set-up demographics array
+	//$scope.demographics= [];
 
 	//Render bio button 
-	//$timeout(function(){
+	$timeout(function(){
 		$scope.show = true; 
-	//}, 5000); 
+	}, 5000); 
 
 	//Set about display to not render 
 	$scope.displayAbout = false;
@@ -111,10 +114,13 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 					//validate if user entered demographic information 
 					var re = /hispanic|black|white|male|female/g;
 					if(re.test(userInput)){
+						//adding demographic information to scope
 						var demographics = userInput.match(re);
 						//push demographic information to array 
 						demographics.push(state.data[i].state_name);
 						preventScroll = false;	
+
+						//console.log($scope.demographics);
 						
 						//render selected state once input has been validated 
 						$timeout(function() {
@@ -141,25 +147,20 @@ iornBars.controller('mainController', ['$scope', '$http', '$parse', '$location',
 	  });
 	};
 
-	$scope.showText = function(){
-
-
-	}
-
 
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
 		//Render example input 
-		// $timeout(function(){    
-		// 	$(".form-control").typed({
-		// 		 strings: ["I am a white male living in the state of California ",
-		// 		  	   "I am a hispanic female living in New York ",
-		// 		  	   "I am a black man living in Illinois ",
-		// 		  	   ""],
-		// 		 typeSpeed: 35,
-		// 		 backSpeed: 0,
-		// 	});
-		// }, 10000);
+		$timeout(function(){    
+			$(".form-control").typed({
+				 strings: ["I am a white male living in the state of California ",
+				  	   "I am a hispanic female living in New York ",
+				  	   "I am a black man living in Illinois ",
+				  	   ""],
+				 typeSpeed: 35,
+				 backSpeed: 0,
+			});
+		}, 10000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(
