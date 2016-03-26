@@ -22,9 +22,9 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 	}	
 
 	// images have loaded
-	angular.element('.jumbotron').imagesLoaded( function() {
 	  //Run background-image slide-show
 		  $interval(function(){
+	angular.element('.jumbotron').imagesLoaded( function() {
 		  	$timeout(function(){
 		  			$scope.set_bgrd_image = function(){
 		  					return {  "background": "center url('/images/iornbars2.jpg')",
@@ -84,9 +84,9 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		  						   "transition": "all linear 3s"}			
 		  			}
 		  		}, 18000)
+	});
 		  }, 25000); 
 
-	});
 	
 	//Render heading text 
 	$scope.texttyping = ["What Are Your Chances?"];
