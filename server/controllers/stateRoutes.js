@@ -5,7 +5,7 @@ var locus = require("locus");
 var states = require('../models/states')
 
 router.get('/states', function(req,res) {
-	states.allStates().distinct('state_name').then(function(states){
+	states.allStates().then(function(states){
 		res.json(states);
 	})
 });

@@ -137,10 +137,6 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 						//set user demo input on DOM 
 						document.getElementById("demo").innerHTML = demographics[0];
 
-						//function that takes array as input and returns 
-						//array with probabilities
-						getStats(demographics);
-
 					}else if(reGender.test(userInput)){
 						//adding demographic information to scope
 						var demographics = userInput.match(reGender);
@@ -159,10 +155,7 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 
 						//set user demo input on DOM 
 						document.getElementById("demo").innerHTML = demographics[0];
-
-						//function that takes array as input and returns 
-						//array with probabilities
-						getStats(demographics);
+					
 					}
 
 				}
@@ -175,65 +168,6 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		});
 	}
 
-	//send user demographic information to db
-	var getStats = function(demoInfo){
-		//call server for state data check
-		return $http({
-			method: "GET",
-			url: "/api/state/" + demoInfo[1]
-
-		}).then(function(state){
-			if(demoInfo[0] === "white"){
-
-				 var raceProb = (state.data.white_jailed_population/state.data.white_population) * 100;
-				 document.getElementById("stat").innerHTML =  raceProb.toFixed(3);
-
-			}else if(demoInfo[0] === "black"){
-
-				var raceProb = (state.data.black_jailed_population/state.data.black_population) * 100;
-				document.getElementById("stat").innerHTML = raceProb.toFixed(3);
-
-			}else if(demoInfo[0] === "hispanic"){
-
-				var raceProb = (state.data.hispanic_jailed_population/state.data.hispanic_population) * 100;
-				document.getElementById("stat").innerHTML = raceProb.toFixed(3);
-
-			}else if(demoInfo[0] === "other"){
-
-				var raceProb = (state.data.other_jailed_population/state.data.other_population) * 100;
-				document.getElementById("stat").innerHTML = raceProb.toFixed(3);
-
-			}else if (demoInfo[0] === "male"){
-				
-				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
-				document.getElementById("stat").innerHTML = genderProb.toFixed(3);
-
-			}else if(demoInfo[0] === "female"){
-
-				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
-				document.getElementById("stat").innerHTML = genderProb.toFixed(3);
-			}
-
-		}).catch(function(err){
-			console.log(err);
-		});
-	}
-
-	// document.getElementById("stat2").innerHTML = getStats(["black", $scope.user.demographics[1], $scope.user.demographics[2]]);
-	// document.getElementById("race2").innerHTML = "black";
-
-	// document.getElementById("stat3").innerHTML = getStats(["hispanic", $scope.user.demographics[1], $scope.user.demographics[2]]);
-	// document.getElementById("race3").innerHTML = "hispanic";
-
-
-	// document.getElementById("stat4").innerHTML = getStats(["other", $scope.user.demographics[1], $scope.user.demographics[2]]);
-	// document.getElementById("race4").innerHTML = "other";
-
-	// document.getElementById("stat5").innerHTML = getStats([$scope.user.demographics[0], "female", $scope.user.demographics[2]]);
-	// document.getElementById("gender2").innerHTML = "female";
-
-
-
 	//Invoke click event for d3 map
 	//http://stackoverflow.com/questions/9063383/how-to-invoke-click-event-programmatically-in-d3
 	angular.element.fn.d3Click = function () {
@@ -242,7 +176,6 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 	    e.dispatchEvent(evt);
 	  });
 	};
-
 
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
@@ -329,7 +262,12 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		});
 
 		function clicked(d) {
+		  //set div heading to current state		
 		  document.getElementById("stateHeading").innerHTML = this.id;
+
+		  //call stats function with current demo info
+		  getStats([document.getElementById("demo").innerText, this.id]);
+
 		  if (active.node() === this) return reset();
 		  active.classed("active", false);
 		  active = d3.select(this).classed("active", true);
@@ -349,13 +287,61 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		}
 
 		function reset() {
+		//set div heading to current state		
+		  document.getElementById("stateHeading").innerHTML = "USA";
 		  active.classed("active", false);
 		  active = d3.select(null);
-
 		  g.transition()
 		      .duration(750)
 		      .style("stroke-width", "1.5px")
 		      .attr("transform", "");
 		}
+
+
+		//send user demographic information to db
+		var getStats = function(demoInfo){
+			//call server for state data check
+			$.ajax({
+				type: "GET",
+				dataType: 'json',
+				url: "/api/state/" + demoInfo[1]
+
+			}).done(function(state){
+				if(demoInfo[0] === "white"){
+
+					 var raceProb = (state.white_jailed_population/state.white_population) * 100;
+					 document.getElementById("stat").innerHTML =  raceProb.toFixed(3);
+
+				}else if(demoInfo[0] === "black"){
+
+					var raceProb = (state.black_jailed_population/state.black_population) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+
+				}else if(demoInfo[0] === "hispanic"){
+
+					var raceProb = (state.hispanic_jailed_population/state.hispanic_population) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+
+				}else if(demoInfo[0] === "other"){
+
+					var raceProb = (state.other_jailed_population/state.other_population) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+
+				}else if (demoInfo[0] === "male"){
+					
+					var genderProb = (state.male_jailed_population/state.male_population) * 100;
+					document.getElementById("stat").innerHTML = genderProb.toFixed(3);
+
+				}else if(demoInfo[0] === "female"){
+
+					var genderProb = (state.female_jailed_population/state.female_population) * 100;
+					document.getElementById("stat").innerHTML = genderProb.toFixed(3);
+
+				}
+
+			}).fail(function(err){
+				console.log(err);
+			});
+		}	
 	});
 }]);
