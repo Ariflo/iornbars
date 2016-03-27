@@ -9,9 +9,9 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 	$rootScope.show = false;
 
 	//Render bio button 
-	$timeout(function(){
+	// $timeout(function(){
 		$scope.display = true; 
-	}, 2000); 
+	// }, 2000); 
 
 	//Set about display to not render 
 	$scope.displayAbout = false;
@@ -115,30 +115,56 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 					foundState  = true;
 
 					//validate if user entered demographic information 
-					var re = /hispanic|black|white|other|male|female/g;
-					if(re.test(userInput)){
+					var reRace = /hispanic|black|white|other/g;
+					var reGender = /male|female/g;
 
+					if(reRace.test(userInput)){
 						//adding demographic information to scope
-						var demographics = userInput.match(re);
+						var demographics = userInput.match(reRace);
 
 						//push demographic information to array 
 						demographics.push(state.data[i].state_name);
+						
 						preventScroll = false;
 						$rootScope.show = true;
+
 						//render selected state once input has been validated 
 						$timeout(function() {
 							angular.element('#chancesButton').triggerHandler('click');
-							angular.element("[id= '"+ demographics[2] + "']").d3Click();
+							angular.element("[id= '"+ demographics[1] + "']").d3Click();
 						}, 500);
 
 						//set user demo input on DOM 
-						document.getElementById("race").innerHTML = demographics[0];
-						document.getElementById("gender").innerHTML = demographics[1];
+						document.getElementById("demo").innerHTML = demographics[0];
+
+						//function that takes array as input and returns 
+						//array with probabilities
+						getStats(demographics);
+
+					}else if(reGender.test(userInput)){
+						//adding demographic information to scope
+						var demographics = userInput.match(reGender);
+
+						//push demographic information to array 
+						demographics.push(state.data[i].state_name);
+						
+						preventScroll = false;
+						$rootScope.show = true;
+
+						//render selected state once input has been validated 
+						$timeout(function() {
+							angular.element('#chancesButton').triggerHandler('click');
+							angular.element("[id= '"+ demographics[1] + "']").d3Click();
+						}, 500);
+
+						//set user demo input on DOM 
+						document.getElementById("demo").innerHTML = demographics[0];
 
 						//function that takes array as input and returns 
 						//array with probabilities
 						getStats(demographics);
 					}
+
 				}
 			}
 			if (!foundState) {
@@ -154,82 +180,38 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		//call server for state data check
 		return $http({
 			method: "GET",
-			url: "/api/state/" + demoInfo[2]
+			url: "/api/state/" + demoInfo[1]
 
 		}).then(function(state){
-			if(demoInfo[0] === "white" && demoInfo[1] === "male"){
+			if(demoInfo[0] === "white"){
 
 				 var raceProb = (state.data.white_jailed_population/state.data.white_population) * 100;
-				 var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+				 document.getElementById("stat").innerHTML =  raceProb.toFixed(3);
 
-				 var combinedProb = raceProb * genderProb;
-
-				 document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
-
-			}else if(demoInfo[0] === "white" && demoInfo[1] === "female"){
-
-				var raceProb = (state.data.white_jailed_population/state.data.white_population) * 100;
-				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
-
-				var combinedProb = raceProb * genderProb;
-
-				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
-
-			}else if(demoInfo[0] === "black" && demoInfo[1] === "male"){
+			}else if(demoInfo[0] === "black"){
 
 				var raceProb = (state.data.black_jailed_population/state.data.black_population) * 100;
-				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+				document.getElementById("stat").innerHTML = raceProb.toFixed(3);
 
-				var combinedProb = raceProb * genderProb;
-			
-				document.getElementById("stat").innerHTML =   combinedProb.toFixed(3);
-
-			}else if(demoInfo[0] === "black" && demoInfo[1] === "female"){
-
-				var raceProb = (state.data.black_jailed_population/state.data.black_population) * 100;
-				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
-
-				var combinedProb = raceProb * genderProb;
-				
-				document.getElementById("stat").innerHTML =   combinedProb.toFixed(3);
-
-			}else if (demoInfo[0] === "hispanic" && demoInfo[1] === "male"){
+			}else if(demoInfo[0] === "hispanic"){
 
 				var raceProb = (state.data.hispanic_jailed_population/state.data.hispanic_population) * 100;
-				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+				document.getElementById("stat").innerHTML = raceProb.toFixed(3);
 
-				var combinedProb = raceProb * genderProb;
-				
-				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
-
-			}else if(demoInfo[0] === "hispanic" && demoInfo[1] === "female"){
-
-				var raceProb = (state.data.hispanic_jailed_population/state.data.hispanic_population) * 100;
-				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
-
-				var combinedProb = raceProb * genderProb;
-
-				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
-
-			}else if(demoInfo[0] === "other" && demoInfo[1] === "male"){
+			}else if(demoInfo[0] === "other"){
 
 				var raceProb = (state.data.other_jailed_population/state.data.other_population) * 100;
-				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+				document.getElementById("stat").innerHTML = raceProb.toFixed(3);
 
-				var combinedProb = raceProb * genderProb;
+			}else if (demoInfo[0] === "male"){
 				
-				document.getElementById("stat").innerHTML =   combinedProb.toFixed(3);
+				var genderProb = (state.data.male_jailed_population/state.data.male_population) * 100;
+				document.getElementById("stat").innerHTML = genderProb.toFixed(3);
 
-			}else if (demoInfo[0] === "other" && demoInfo[1] === "female"){
+			}else if(demoInfo[0] === "female"){
 
-				var raceProb = (state.data.other_jailed_population/state.data.other_population) * 100;
 				var genderProb = (state.data.female_jailed_population/state.data.female_population) * 100;
-
-				var combinedProb = raceProb * genderProb;
-
-				document.getElementById("stat").innerHTML =  combinedProb.toFixed(3);
-			}else{
-				console.log("no info!");
+				document.getElementById("stat").innerHTML = genderProb.toFixed(3);
 			}
 
 		}).catch(function(err){
@@ -265,16 +247,16 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
 		// Render example input 
-		$timeout(function(){    
-			$(".form-control").typed({
-				 strings: ["I am a white male living in the state of California ",
-				  	   "I am a hispanic female living in New York ",
-				  	   "I am a black man living in Illinois ",
-				  	   ""],
-				 typeSpeed: 35,
-				 backSpeed: 0,
-			});
-		}, 4000);
+		// $timeout(function(){    
+		// 	$(".form-control").typed({
+		// 		 strings: ["I am a white male living in the state of California ",
+		// 		  	   "I am a hispanic female living in New York ",
+		// 		  	   "I am a black man living in Illinois ",
+		// 		  	   ""],
+		// 		 typeSpeed: 35,
+		// 		 backSpeed: 0,
+		// 	});
+		// }, 4000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(

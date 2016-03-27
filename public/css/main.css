@@ -196,10 +196,6 @@ footer{
    opacity: .4;
 }
 
-#race, #gender{
-  margin: 2px;
-}
-
 .percent, .chance{
   font-size: 15px;
 }
