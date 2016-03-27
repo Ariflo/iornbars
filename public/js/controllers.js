@@ -1,17 +1,17 @@
 iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse', '$location', '$routeParams', '$timeout', '$anchorScroll', '$interval', 'anchorSmoothScroll',
 	                                     function($rootScope, $scope, $http,  $parse,  $location,   $routeParams, $timeout, $anchorScroll, $interval, anchorSmoothScroll) {    
 	//set up variable to prevent scroll down to map unitl user input has been validated
-	var preventScroll = true;	
-	
+	var preventScroll = true;
+
 	//Set-up user object
 	$scope.user = {};
 
 	$rootScope.show = false;
 
 	//Render bio button 
-	// $timeout(function(){
+	$timeout(function(){
 		$scope.display = true; 
-	// }, 2000); 
+	}, 2000); 
 
 	//Set about display to not render 
 	$scope.displayAbout = false;
@@ -21,71 +21,74 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		$scope.displayAbout = !$scope.displayAbout;
 	}	
 
-	// images have loaded
-	  //Run background-image slide-show
-		  $interval(function(){
-	angular.element('.jumbotron').imagesLoaded( function() {
-		  	$timeout(function(){
-		  			$scope.set_bgrd_image = function(){
-		  					return {  "background": "center url('/images/iornbars2.jpg')",
-		  						  "background-size": "cover",
-		  						   "background-repeat": "no-repeat",
-		  						   "-webkit-transition": "all linear 3s",
-		  						   "-moz-transition": "all linear 3s",
-		  						   "-o-transition": "all linear 3s",
-		  						   "transition": "all linear 3s"}			
-		  			}
-		  		}, 2000)		
+	angular.element('#userInput').on('click', function(e){
+	       $(this).data().reset();
+	       $('#userInput').replaceWith('<input type="text" id="userInput" ng-model="user.info" ng-show="display" class="form-control text-center ng-pristine ng-untouched ng-valid" placeholder="I am...">');
+	       $("#input_text").focus();
+	   });	
 
-		  	$timeout(function(){
-		  			$scope.set_bgrd_image = function(){
-		  					return {  "background": "center url('/images/iornbars3.jpg')",
-		  						  "background-size": "cover",
-		  						   "background-repeat": "no-repeat",
-		  						   "-webkit-transition": "all linear 3s",
-		  						   "-moz-transition": "all linear 3s",
-		  						   "-o-transition": "all linear 3s",
-		  						   "transition": "all linear 3s"}			
-		  			}
-		  		}, 6000)		
+	 //Run background-image slide-show
+	  $interval(function(){
+	  	$timeout(function(){
+	  			$scope.set_bgrd_image = function(){
+	  					return {  "background": "center url('/images/iornbars2.jpg')",
+	  						  "background-size": "cover",
+	  						   "background-repeat": "no-repeat",
+	  						   "-webkit-transition": "all linear 3s",
+	  						   "-moz-transition": "all linear 3s",
+	  						   "-o-transition": "all linear 3s",
+	  						   "transition": "all linear 3s"}			
+	  			}
+	  		}, 2000)		
 
-		  	$timeout(function(){
-		  			$scope.set_bgrd_image = function(){
-		  					return {  "background": "center url('/images/iornbars4.jpg')",
-		  						  "background-size": "cover",
-		  						   "background-repeat": "no-repeat",
-		  						   "-webkit-transition": "all linear 3s",
-		  						   "-moz-transition": "all linear 3s",
-		  						   "-o-transition": "all linear 3s",
-		  						   "transition": "all linear 3s"}			
-		  			}
-		  		}, 10000)		
+	  	$timeout(function(){
+	  			$scope.set_bgrd_image = function(){
+	  					return {  "background": "center url('/images/iornbars3.jpg')",
+	  						  "background-size": "cover",
+	  						   "background-repeat": "no-repeat",
+	  						   "-webkit-transition": "all linear 3s",
+	  						   "-moz-transition": "all linear 3s",
+	  						   "-o-transition": "all linear 3s",
+	  						   "transition": "all linear 3s"}			
+	  			}
+	  		}, 6000)		
 
-		  	$timeout(function(){
-		  			$scope.set_bgrd_image = function(){
-		  					return {  "background": "center url('/images/iornbars5.jpeg')",
-		  						  "background-size": "cover",
-		  						   "background-repeat": "no-repeat",
-		  						   "-webkit-transition": "all linear 3s",
-		  						   "-moz-transition": "all linear 3s",
-		  						   "-o-transition": "all linear 3s",
-		  						   "transition": "all linear 3s"}			
-		  			}
-		  		}, 14000)		
+	  	$timeout(function(){
+	  			$scope.set_bgrd_image = function(){
+	  					return {  "background": "center url('/images/iornbars4.jpg')",
+	  						  "background-size": "cover",
+	  						   "background-repeat": "no-repeat",
+	  						   "-webkit-transition": "all linear 3s",
+	  						   "-moz-transition": "all linear 3s",
+	  						   "-o-transition": "all linear 3s",
+	  						   "transition": "all linear 3s"}			
+	  			}
+	  		}, 10000)		
 
-		  	$timeout(function(){
-		  			$scope.set_bgrd_image = function(){
-		  					return {  "background": "center url('/images/iornbars.jpg')",
-		  						  "background-size": "cover",
-		  						   "background-repeat": "no-repeat",
-		  						   "-webkit-transition": "all linear 3s",
-		  						   "-moz-transition": "all linear 3s",
-		  						   "-o-transition": "all linear 3s",
-		  						   "transition": "all linear 3s"}			
-		  			}
-		  		}, 18000)
-	});
-		  }, 25000); 
+	  	$timeout(function(){
+	  			$scope.set_bgrd_image = function(){
+	  					return {  "background": "center url('/images/iornbars5.jpeg')",
+	  						  "background-size": "cover",
+	  						   "background-repeat": "no-repeat",
+	  						   "-webkit-transition": "all linear 3s",
+	  						   "-moz-transition": "all linear 3s",
+	  						   "-o-transition": "all linear 3s",
+	  						   "transition": "all linear 3s"}			
+	  			}
+	  		}, 14000)		
+
+	  	$timeout(function(){
+	  			$scope.set_bgrd_image = function(){
+	  					return {  "background": "center url('/images/iornbars.jpg')",
+	  						  "background-size": "cover",
+	  						   "background-repeat": "no-repeat",
+	  						   "-webkit-transition": "all linear 3s",
+	  						   "-moz-transition": "all linear 3s",
+	  						   "-o-transition": "all linear 3s",
+	  						   "transition": "all linear 3s"}			
+	  			}
+	  		}, 18000)
+	  }, 25000); 
 
 	
 	//Render heading text 
@@ -100,22 +103,22 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 
 	//Parse thru user input
 	$scope.inputParser = function(userInfo){
+		console.log(userInfo);
 		//call server for state data check
 		$http({
 			method: "GET",
 			url: "/api/states"
 
 		}).then(function(state){
-			foundState = false;
-			
+
 			for(var i = 0; i< state.data.length; i++){
 				var userInput = userInfo.toLowerCase(); 
 				//validate if input contains a US State
 				if(userInput.includes(state.data[i].state_name.toLowerCase())){
-					foundState  = true;
+					var foundState  = true;
 
 					//validate if user entered demographic information 
-					var reRace = /hispanic|black|white|other/g;
+					var reRace = /hispanic|black|white/g;
 					var reGender = /male|female/g;
 
 					if(reRace.test(userInput)){
@@ -155,7 +158,24 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 
 						//set user demo input on DOM 
 						document.getElementById("demo").innerHTML = demographics[0];
-					
+					}else{
+						//adding demographic information to scope
+						var demographics = ["other"];
+
+						//push demographic information to array 
+						demographics.push(state.data[i].state_name);
+						
+						preventScroll = false;
+						$rootScope.show = true;
+
+						//render selected state once input has been validated 
+						$timeout(function() {
+							angular.element('#chancesButton').triggerHandler('click');
+							angular.element("[id= '"+ demographics[1] + "']").d3Click();
+						}, 500);
+
+						//set user demo input on DOM 
+						document.getElementById("demo").innerHTML = demographics[0];
 					}
 
 				}
@@ -180,16 +200,15 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
 		// Render example input 
-		// $timeout(function(){    
-		// 	$(".form-control").typed({
-		// 		 strings: ["I am a white male living in the state of California ",
-		// 		  	   "I am a hispanic female living in New York ",
-		// 		  	   "I am a black man living in Illinois ",
-		// 		  	   ""],
-		// 		 typeSpeed: 35,
-		// 		 backSpeed: 0,
-		// 	});
-		// }, 4000);
+		$timeout(function(){    
+			$(".form-control").typed({
+				 strings: ["I'm a female from California",
+				  	   "I am hispanic in Texas",
+				  	   "I'm black from Illinois",
+				  	   ""],
+				 typeSpeed: 50,
+			});
+		}, 4000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(
@@ -287,8 +306,11 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 		}
 
 		function reset() {
-		//set div heading to current state		
+		  //set div heading to 'USA' 		
 		  document.getElementById("stateHeading").innerHTML = "USA";
+		   //call stats function with current demo info
+		  getNationalStats([document.getElementById("demo").innerText, document.getElementById("stateHeading").innerText])
+
 		  active.classed("active", false);
 		  active = d3.select(null);
 		  g.transition()
@@ -300,7 +322,7 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 
 		//send user demographic information to db
 		var getStats = function(demoInfo){
-			//call server for state data check
+			//call server for state data 
 			$.ajax({
 				type: "GET",
 				dataType: 'json',
@@ -322,11 +344,6 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 					var raceProb = (state.hispanic_jailed_population/state.hispanic_population) * 100;
 					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
 
-				}else if(demoInfo[0] === "other"){
-
-					var raceProb = (state.other_jailed_population/state.other_population) * 100;
-					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
-
 				}else if (demoInfo[0] === "male"){
 					
 					var genderProb = (state.male_jailed_population/state.male_population) * 100;
@@ -337,11 +354,92 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 					var genderProb = (state.female_jailed_population/state.female_population) * 100;
 					document.getElementById("stat").innerHTML = genderProb.toFixed(3);
 
+				}else{
+					var raceProb = (state.other_jailed_population/state.other_population) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
 				}
 
 			}).fail(function(err){
 				console.log(err);
 			});
-		}	
+		}			
+
+		//send user demographic information to db
+		var getNationalStats = function(demoInfo){
+			//call server for states data check
+			$.ajax({
+				type: "GET",
+				dataType: 'json',
+				url: "/api/states/"
+
+			}).done(function(state){
+				var nationalMalePop = 0, 
+				      nationalFemalePop = 0,
+				      nationalWhitePop = 0,
+				      nationalBlackPop = 0,
+				      nationalHispanicPop = 0,
+				      nationalOtherPop = 0;				
+
+				var nationalMaleJailedPop = 0, 
+				      nationalFemaleJailedPop = 0,
+				      nationalWhiteJailedPop = 0,
+				      nationalBlackJailedPop = 0,
+				      nationalHispanicJailedPop = 0, 
+				      nationalOtherJailedPop = 0;
+
+
+				for(var i = 0; i< state.length; i++){
+
+					nationalMalePop += state[i].male_population;
+					nationalFemalePop += state[i].female_population;
+
+					nationalWhitePop += state[i].white_population;
+					nationalBlackPop += state[i].black_population;
+					nationalHispanicPop += state[i].hispanic_population;
+					nationalOtherPop += state[i].other_population;
+
+					nationalMaleJailedPop += state[i].male_jailed_population;
+					nationalFemaleJailedPop += state[i].female_jailed_population;
+
+					nationalWhiteJailedPop += Math.floor(state[i].white_jailed_population);
+					nationalBlackJailedPop += Math.floor(state[i].black_jailed_population);
+					nationalHispanicJailedPop += Math.floor(state[i].hispanic_jailed_population);
+					nationalOtherJailedPop += Math.floor(state[i].other_jailed_population);
+				}
+
+				if(demoInfo[0] === "white"){
+
+					 var raceProb = (nationalWhiteJailedPop/nationalWhitePop) * 100;
+					 document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+
+				}else if(demoInfo[0] === "black"){
+
+					var raceProb = (nationalBlackJailedPop/nationalBlackPop) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+
+				}else if(demoInfo[0] === "hispanic"){
+
+					var raceProb = (nationalHispanicJailedPop/nationalHispanicPop) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+
+				}else if (demoInfo[0] === "male"){
+					
+					var genderProb = (nationalMaleJailedPop/nationalMalePop) * 100;
+					document.getElementById("stat").innerHTML = genderProb.toFixed(3);
+
+				}else if(demoInfo[0] === "female"){
+
+					var genderProb = (nationalFemaleJailedPop/nationalFemalePop) * 100;
+					document.getElementById("stat").innerHTML = genderProb.toFixed(3);
+				}else{
+
+					var raceProb = (nationalOtherJailedPop/nationalOtherPop) * 100;
+					document.getElementById("stat").innerHTML = raceProb.toFixed(3);
+				}
+
+			}).fail(function(err){
+				console.log(err);
+			});
+		}
 	});
 }]);

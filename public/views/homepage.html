@@ -21,7 +21,7 @@
 		</div>
 		<div class="col-xs-7">
 			<form ng-submit="inputParser(user.info)">
-				<input type="text" ng-model="user.info" ng-show="display" class="form-control text-center" placeholder="I am...">
+				<input type="text" id="userInput" ng-model="user.info" ng-show="display" class="form-control text-center" placeholder="I am...">
 			             <button type="submit" ng-show="display" ng-click="goToMap('map')" id="chancesButton" class="btn btn-md gradient" >Find Out</button>	
 			</form>
 
