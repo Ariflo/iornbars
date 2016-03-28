@@ -20,12 +20,18 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 	$scope.showAbout = function (){
 		$scope.displayAbout = !$scope.displayAbout;
 	}	
+	
 
-	angular.element('#userInput').on('click', function(e){
-	       $(this).data().reset();
-	       $('#userInput').replaceWith('<input type="text" id="userInput" ng-model="user.info" ng-show="display" class="form-control text-center ng-pristine ng-untouched ng-valid" placeholder="I am...">');
-	       $("#input_text").focus();
-	   });	
+	// Render example input 
+	$timeout(function(){    
+		angular.element("#userInput").typed({
+			 strings: ["I'm a female from California",
+			  	   "I am a white man living in Texas",
+			  	   "I'm male from Illinois",
+			  	   ""],
+			 typeSpeed: 25,
+		})
+	}, 4000);
 
 	 //Run background-image slide-show
 	  $interval(function(){
@@ -199,16 +205,6 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 
 	//Push Jquery/JS logic post successful route land       
 	$scope.$on('$routeChangeSuccess', function () {
-		// Render example input 
-		$timeout(function(){    
-			$(".form-control").typed({
-				 strings: ["I'm a female from California",
-				  	   "I am hispanic in Texas",
-				  	   "I'm black from Illinois",
-				  	   ""],
-				 typeSpeed: 50,
-			});
-		}, 4000);
 
 		//Hide Navbar upon scroll down
 		$(window).scroll(

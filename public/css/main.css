@@ -182,20 +182,25 @@ footer{
 
 .stateInfo{
   font-family: 'Source Serif Pro', serif;
-  font-weight: 400;
+  font-weight: 600;
    float: left;
    width: 25%;
    height: 45%;
    bottom: 0;
+   border-radius: 5px;
    margin-left: 40%;
    margin-top: 15%; 
    pointer-events:none
    z-index: 1;
    color: black;
    background-color: grey; 
-   opacity: .4;
+   opacity: .6;
 }
 
-.percent, .chance{
+.chance{
   font-size: 15px;
+}
+
+.percent{
+  font-size: 25px;
 }
