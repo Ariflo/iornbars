@@ -30,7 +30,7 @@ h2{
     background: center url("/images/iornbars.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 40em;
+    height: 45em;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000;
 }
@@ -136,10 +136,12 @@ h2{
 }
 
 .aboutBox{
-   margin-left: 84%;
-   margin-right: .5%;
-   position: absolute; 
+   margin-left: 80%;
+   margin-right: 1%;
+   padding-right: 1%;
+   position: fixed; 
    border-radius: 5px;
+   width: 20%;
 
     background: -moz-linear-gradient(left top,  rgba(224, 224, 209, .2), rgba(235, 235, 224, .8)); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, bottom right, color-stop(rgba(224, 224, 209, .2)), color-stop(rgba(235, 235, 224, .8))); /* Chrome,Safari4+ */
@@ -185,7 +187,7 @@ footer{
   font-weight: 600;
    float: left;
    width: 25%;
-   height: 45%;
+   height: 35%;
    bottom: 0;
    border-radius: 5px;
    margin-left: 40%;

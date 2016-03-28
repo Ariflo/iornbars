@@ -9,9 +9,9 @@
 	<div class="row">
 		<div class="aboutBox" ng-show="displayAbout">
 			<div class="col-xs-12">
-				<p class="text-left aboutText">Ironbars.org was created by Arian Flores for the final capstone project to be presented on Hiring Day, March 29, 2016</p>
+				<p class="text-left aboutText">Ironbars.org uses data from the 2010 US Census, prisonpolicy.org, and the BOJ’s National Prisoner Statistics program to display your likelyhood of being incarcerated based on demographics (i.e gender, race, location).<p>
 
-				<p class="text-left aboutText">Ironbars.org uses 2010 US Census data and statistics from the BOJ’s National Prisoner Statistics program to display your probability of being incarcerated based on demographics (i.e gender, race, location). I’ve built this app to bring focus to the mass incarceration burden US prisons face today. My hope is that this app will help shed some light on data not often brought up on any political platform. If you are interested in learning more about this issue visit www.prisonpolicy.org.</p>
+				<p class="text-left aboutText">I’ve built this app to help shed some light on data not often brought up on any political platform when discussing mass incarceration. If you are interested in learning more about this issue visit www.prisonpolicy.org.</p>
 			</div>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 		</div>
 		<div class="col-xs-7">
 			<form ng-submit="inputParser(user.info)">
-				<input type="text" id="userInput" ng-model="user.info" ng-show="display" class="form-control text-center" placeholder="I am...">
+				<input type="text" id="userInput" ng-model="user.info" ng-show="display" class="form-control text-center" autocomplete="off" placeholder="I am...">
 			             <button type="submit" ng-show="display" ng-click="goToMap('map')" id="chancesButton" class="btn btn-md gradient" >Find Out</button>	
 			</form>
 
