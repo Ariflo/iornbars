@@ -29,7 +29,7 @@ iornBars.controller('mainController', ['$rootScope', '$scope', '$http', '$parse'
 			  	   "I am a white man living in Texas",
 			  	   "I'm male from Illinois",
 			  	   ""],
-			 typeSpeed: 25,
+			 typeSpeed: 50,
 		})
 	}, 4000);
 
