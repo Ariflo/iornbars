@@ -29,7 +29,7 @@ h2{
     background: center url("/images/iornbars.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 45em;
+    height: 100vh;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000;
 }
