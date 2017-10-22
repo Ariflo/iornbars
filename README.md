@@ -1,5 +1,5 @@
 ## Iron Bars 
-Ironbars.org uses data avaliable from the 2010 US Census and the National Prisoners Statistics Program to provide users their probability of being incaracated in their state based on their specific demographics (male, female, white, black, or other). 
+[Ironbars.org](ironbars.herokuapp.com) uses data avaliable from the 2010 US Census and the National Prisoners Statistics Program to provide users their probability of being incaracated in their state based on their specific demographics (male, female, white, black, or other). 
 
 ## Install
 
